@@ -6,9 +6,9 @@
   },
   "scripts": {
     "frontend-build": "cd bar_point_frontend && npm install && npm run build && cd ..",
-    "backend-build": "cd bar_point_backend && npm install",
+    "backend-build": "cd bar_point_backend && npm install  && npm install nodemon",
     "build": "npm run frontend-build && npm run backend-build",
-    "start": "cd bar_point_backend && node /src/app.js"
+    "start": "cd bar_point_backend && nodemon /src/app.js"
   },
   "private": true,
   "dependencies": {
