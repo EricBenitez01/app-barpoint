@@ -16,7 +16,7 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 200,
 };
-
+app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -27,11 +27,14 @@ app.get('/', (req, res) => {
 });
   
 // Aplicar CORS solo a la ruta /users
-app.use(authRoute, cors(corsOptions));
-app.use(usersRoutes, cors(corsOptions));
-app.use(benefitsRoutes, cors(corsOptions));
-app.use(purchaseRoutes, cors(corsOptions));
-app.use(transaction, cors(corsOptions));
+app.use('/api/auth', authRoute, cors(corsOptions));
+app.use('/api/users', usersRoutes, cors(corsOptions));
+app.use('/api/benefits', benefitsRoutes, cors(corsOptions));
+app.use('/api/purchase', purchaseRoutes, cors(corsOptions));
+app.use('/api/transaction', transaction, cors(corsOptions));
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../bar_point_frontend/dist'));
+});
 
 app.listen('3002', () => console.log('Server running in port 3002'));

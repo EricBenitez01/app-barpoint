@@ -5,10 +5,10 @@
     "node": "16.16.0"
   },
   "scripts": {
-    "frontend-build": "cd bar_point_frontend && npm install && npm run build && cd ..",
+    "frontend-build": "cd bar_point_frontend && npm install && ng build --prod && cd ..",
     "backend-build": "cd bar_point_backend && npm install  && npm install --save-dev nodemon",
     "build": "npm run frontend-build && npm run backend-build",
-    "start": "node bar_point_backend/src/app.js"
+    "start": "node bar_point_backend/src/app.js && cd bar_point_frontend && ng serve"
   },
   "main": "bar_point_backend/src/app.js",
   "private": true,
