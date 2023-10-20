@@ -16,7 +16,7 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 200,
 };
-app.use(express.static(path.join(__dirname, '../bar_point_frontend/dist')));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -33,8 +33,12 @@ app.use('/api/benefits', benefitsRoutes, cors(corsOptions));
 app.use('/api/purchase', purchaseRoutes, cors(corsOptions));
 app.use('/api/transaction', transaction, cors(corsOptions));
 
+/* app.use(express.static(path.join(__dirname, '../bar_point_frontend/dist')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../bar_point_frontend/dist'));
-});
-
+}); */
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname,'public', 'index.html'))
+})
 app.listen('3002', () => console.log('Server running in port 3002'));
