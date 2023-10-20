@@ -33,12 +33,14 @@ app.use('/api/benefits', benefitsRoutes, cors(corsOptions));
 app.use('/api/purchase', purchaseRoutes, cors(corsOptions));
 app.use('/api/transaction', transaction, cors(corsOptions));
 
-/* app.use(express.static(path.join(__dirname, '../bar_point_frontend/dist')));
+app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
+
+// Ruta que maneja todas las solicitudes y las redirige al archivo 'index.html'
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../bar_point_frontend/dist'));
-}); */
-app.use(express.static('public'));
+    res.sendFile(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend/index.html'));
+});
+/* app.use(express.static('public'));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname,'public', 'index.html'))
-})
+}) */
 app.listen('3002', () => console.log('Server running in port 3002'));
