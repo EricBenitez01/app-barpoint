@@ -205,5 +205,9 @@ module.exports = {
                 msg: error.message ? error.message : "Contact the site administrator",
             });
         }
-    }
+    },
+
+    test: function (res, send)  {
+        res.send("hola roberto");
+    } 
 };

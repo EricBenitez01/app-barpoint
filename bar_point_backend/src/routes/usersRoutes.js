@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {list, detail, create, update, destroy} = require('../controllers/usersController');
+const {list, detail, create, update, destroy, test} = require('../controllers/usersController');
 const verifyToken = require('../controllers/tokenVerification');
 
 router
@@ -9,5 +9,6 @@ router
     .post('/users', create)
     .put('/users/:id', update)
     .delete('/users/:id', destroy)
+    .get('/userss',  test)
 
 module.exports = router;
