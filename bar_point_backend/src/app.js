@@ -22,7 +22,9 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 // Configurar opciones de CORS
-
+app.get('/', (req, res) => {
+    res.send('Hola, Roberto!');
+});
   
 // Aplicar CORS solo a la ruta /users
 app.use(authRoute, cors(corsOptions));

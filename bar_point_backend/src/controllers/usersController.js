@@ -207,7 +207,7 @@ module.exports = {
         }
     },
 
-    test: function (res, send)  {
-        res.send("hola roberto");
-    } 
+    test: (req, res) => {
+        res.send('Hola, Roberto!');
+    }
 };
