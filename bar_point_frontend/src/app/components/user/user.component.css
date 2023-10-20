@@ -1,0 +1,66 @@
+.backgroundUserPoints {
+    position: relative;
+    background-image: url('../../../assets/img/Rectangle5.png');
+    background-size: cover;
+    height: 160px;
+    border-radius: 5%;
+    margin: auto;
+    width: 380px;
+    color: #fff;
+    font-family: 'Roboto';
+    display: flex; /* Hacemos que el contenedor sea un flex container */
+    align-items: center; /* Centramos verticalmente el contenido */
+    justify-content: center; /* Centramos horizontalmente el contenido */
+  }
+  
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(32, 29, 30, 0.5);
+    border-radius: 5%;
+  }
+  
+  .center-contents {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: -41px;
+  }
+  
+  .points {
+    font-family: 'Roboto';
+    font-size: 94.143px;
+    font-weight: 800;
+    height: 0px;
+  }
+  
+  .text {
+    font-family: 'Roboto';
+    font-size: 24.816px;
+    font-style: normal;
+    font-weight: 500;
+    height: 0px;
+    margin-top: 0px;
+  }
+  
+  .helloUser {
+    margin: auto;
+    width: 380px;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  
+  
+  
+
+  

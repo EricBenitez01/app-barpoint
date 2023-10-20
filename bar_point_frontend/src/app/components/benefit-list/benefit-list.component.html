@@ -1,0 +1,18 @@
+<div class="listContainer">
+    <h2>MAS PROMOS</h2>
+    <div *ngFor="let benefit of benefits">
+        <div class="cardContainer">
+            <div class="image-container">
+                <img src="../../../assets/img/Rectangle5.png" class="cover-image" alt="">
+            </div>
+            <div class="columCard">
+                <div class="cardText">
+                <p class="title">{{benefit.title}}</p>
+                <p class="description">{{benefit.descriptions}}</p>
+            </div>
+            <p class="points-req">{{benefit.points}}.</p>
+            </div>
+        </div>
+        <hr class="line">
+    </div>
+</div>

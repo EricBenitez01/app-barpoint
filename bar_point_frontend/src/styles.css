@@ -1,0 +1,12 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeflex/themes/primeone-light.css";   
+@import "primeicons/primeicons.css";
+
+.backgroundApp {
+    background: linear-gradient(0deg, rgba(234,84,147,1) 0%, rgba(92,64,146,1) 100%);
+}
+
+body {
+    margin: 0px;
+}

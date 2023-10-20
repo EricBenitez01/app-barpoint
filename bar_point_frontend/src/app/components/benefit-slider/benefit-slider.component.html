@@ -1,0 +1,14 @@
+<p-carousel [value]="benefits" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="benefit" let-benefit>
+        <div class="cardContainer">
+            <div class="image-container">
+                <img src="../../../assets/img/Rectangle5.png" class="cover-image" alt="">
+            </div>
+            <div class="cardText">
+                <p class="title">{{benefit.title}}</p>
+                <p class="description">{{benefit.descriptions}}</p>
+                <p class="points-req">{{benefit.points}}.</p>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

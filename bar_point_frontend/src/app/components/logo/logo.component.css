@@ -1,0 +1,6 @@
+.custom-rounded-div {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto en blanco */
+    border-radius: 10px; /* Radio de esquinas redondeadas (ajusta según sea necesario) */
+    padding: 1rem; /* Espacio interno (ajusta según sea necesario) */
+}

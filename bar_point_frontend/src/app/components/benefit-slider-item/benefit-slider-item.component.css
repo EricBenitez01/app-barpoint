@@ -1,0 +1,65 @@
+.description {
+    margin-top: 0px;
+    padding:  0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.title {
+    margin: 0px;
+    margin-bottom: 7px;
+    padding: 0px;
+    color: var(--base-white, #FFF);
+    font-family: 'MADE Soulmaze';
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1.5px
+}
+
+.cardContainer {
+    width: 380px;
+    background-color: rgb(65, 65, 65); 
+    color: white;
+    overflow: hidden;
+    height: 212px;
+    border-radius: 4%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+  
+.cover-image {
+    width: 100%; /* Hace que la imagen ocupe el ancho completo del contenedor */
+    height: 100%; /* Hace que la imagen ocupe la altura completa del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
+}
+
+.image-container {
+    height: 100px;
+}
+
+.cardText{
+    height: 100px;
+    padding: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15.75px
+}
+
+.points-req {
+    margin-right: 20px;
+    display: flex;
+    justify-content: end;
+    font-weight: 300;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: 'MADE Soulmaze';
+    font-size: 22.847px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 5px;
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+  
