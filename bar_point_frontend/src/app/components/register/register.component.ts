@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importa FormGroup y Validators
 import { User, UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
 
     genderList: string[] = [];
 
-    constructor(private userService: UsersService, private cdr: ChangeDetectorRef, private fb: FormBuilder) {
+    constructor(private userService: UsersService, private cdr: ChangeDetectorRef, private fb: FormBuilder, private router: Router) {
         // Inicializa el FormGroup y define las validaciones
         this.clienteForm = this.fb.group({
             username: ['', Validators.required], // Campo nombreApellido con validación requerida
@@ -50,5 +51,6 @@ export class RegisterComponent {
                 }
             );
         }
+        this.router.navigate(['login']);
     }
 }

@@ -1,6 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserLogin, UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+
+export interface UserLogin {
+    email: string,
+    password: string
+}
 
 @Component({
     selector: 'app-login',
@@ -10,7 +16,12 @@ import { UserLogin, UsersService } from 'src/app/services/users.service';
 export class LoginComponent {
     usuarioForm: FormGroup;
 
-    constructor(private userService: UsersService, private cdr: ChangeDetectorRef, private fb: FormBuilder) {
+    constructor(
+        private authService: AuthService, 
+        private cdr: ChangeDetectorRef, 
+        private fb: FormBuilder,
+        private router: Router
+    ) {
         this.usuarioForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required]
@@ -22,16 +33,24 @@ export class LoginComponent {
             email: this.usuarioForm.value.email,
             password: this.usuarioForm.value.password
         };
-        
-        let response = await this.userService.userLogin(user).subscribe(
-            (data) => {
-                this.cdr.detectChanges();
-                console.log(data);
-            },
-            (error) => {
-                // Manejo de errores
-                console.error(error);
+
+        try {
+            const response = await this.authService.loginUser(user.email, user.password);
+            this.cdr.detectChanges();
+
+            if (!response.error) {
+                this.authService.setToken(response.token);
+                // Se redirige a la ruta Home
+                this.router.navigate(['home']);
             }
-        ); 
+            
+        } catch (error) {
+            // TO-DO: Mostrar info al usuario avisando que ingresó datos incorrectos
+        }
+
+    }
+
+    onClickEvent() {
+        this.onLogin();
     }
 }

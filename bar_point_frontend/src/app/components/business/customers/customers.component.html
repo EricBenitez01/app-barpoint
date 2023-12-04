@@ -1,0 +1,34 @@
+<div class="text-center bg-gray-50">
+    <div class="px-4">
+        <p-table 
+            [value]="customers"  
+            dataKey="code" 
+            [rows]="10"
+            [paginator]="true"
+        >
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    CLIENTES
+                    <app-transaction-popup class="mr-2"></app-transaction-popup>
+                    <p-button icon="pi pi-refresh"></p-button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Puntos</th>
+                    <th>Cumpleaños</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customers>
+                <tr class="text-xl">
+                    <td>{{customers.username}}</td>
+                    <td>{{customers.email}}</td>
+                    <td>{{ customers.user_points[0]?.quantity || 0 }}</td>
+                    <td><span class="text-pink-600 font-normal">{{customers.birthday | date: 'dd/MM/yyyy'}}</span></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="main-faqs-container">
+    <app-nav-bar></app-nav-bar>
+    <div class="faqs-container md:px-8 md:mx-6 md:mt-4 md:border-round-md">
+        <div class="title-container flex w-full align-items-center">
+            <a class="no-underline" href="/home"><i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i></a>
+            <h2 class="text-white text-center w-11 md:pr-0 md:w-full lg:mb-0">PREGUNTAS FRECUENTES</h2>
+            <app-hamburger-menu class="md:hidden"></app-hamburger-menu>
+        </div>
+        <div class="center-container">
+            <div class="my-5 py-2 px-4 text-center bg-gray-300 border-round-xl shadow-4 lg:mx-8 lg:px-6 xl:px-8">
+                <h3 class="text-black">Acá encontrarás las preguntas más frecuentes que suelen hacernos sobre BarPoint.</h3>
+            </div>
+            <p-accordion [activeIndex]="0">
+                <p-accordionTab class="line-height-3" header="¿Qué es BarPoint?">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a odio neque. Quisque vehicula urna massa, id accumsan dui vulputate a. Fusce molestie turpis nulla, ut dignissim ipsum mattis volutpat.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab class="line-height-3" header="Pregunta Frecuente">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a odio neque. Quisque vehicula urna massa, id accumsan dui vulputate a. Fusce molestie turpis nulla, ut dignissim ipsum mattis volutpat.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab class="line-height-3" header="Otra Pregunta Frecuente">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a odio neque. Quisque vehicula urna massa, id accumsan dui vulputate a. Fusce molestie turpis nulla, ut dignissim ipsum mattis volutpat.
+                    </p>
+                </p-accordionTab>
+            </p-accordion>
+            <div class="px-8 pt-4 md:py-4">
+                <h4 class="text-center text-purple-600 md:text-white">¿Necesitas más ayuda con respecto a la app? Contactanos</h4>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

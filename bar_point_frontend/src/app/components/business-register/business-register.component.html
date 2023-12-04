@@ -1,0 +1,120 @@
+<div class="md:flex component-container">
+    <div class="md:hidden flex justify-content-center my-0 py-5">
+        <img class="w-8" src="/assets/logo-mobile.png" alt="">
+    </div>
+    <div class="logo-desktop-container hidden md:flex md:flex-column md:align-items-center md:w-5">
+        <img class="w-8" src="/assets/logo-tablet-desktop.png" alt="">
+        <h6 class="text-center text-white px-5">Sabemos que te gusta salir a tomar algo así que ahora te damos la
+            posibilidad de ganar
+            puntos por todo lo que consumas para poder canjerarlos por increíbles promos.</h6>
+    </div>
+    <div class="shadow-md rounded p-4 mx-auto w-90 md:w-7 md:border-noround"
+        style="width: 90%; background: rgba(1, 1, 1, 0.9)">
+        <div class="flex justify-content-evenly lg:px-8">
+            <h3 class="button-create-account text-white border-bottom-3 pb-1">CREAR CUENTA</h3>
+            <a href="/businessLogin">
+                <h3 class="button-log-in text-white cursor-pointer">INICIAR SESIÓN</h3>
+            </a>
+        </div>
+        <div class="flex flex-column align-items-center">
+            <h4 class="text-white mb-0 mt-2">SUMÁ CLIENTES</h4>
+            <h5 class="text-center text-white mt-2 mb-5 px-3 md:px-5 lg:px-8">
+                Ingresá tus datos y comenzá a disfrutar de tus beneficios con nosotros.
+            </h5>
+        </div>
+        <form [formGroup]="businessForm" (ngSubmit)="onSubmit()">
+            <div class="flex md:px-5 lg:px-8">
+                <div class="mb-3 w-6">
+                    <input id="nombre" type="text" formControlName="name"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Nombre" />
+                    <div *ngIf="businessForm.get('name')?.hasError('required') && businessForm.get('name')?.touched"
+                        class="pt-2 error-validation">
+                        Nombre es requerido.
+                    </div>
+                </div>
+                <div class="mb-3 w-6">
+                    <input id="apellido" type="text" formControlName="lastname"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Apellido" />
+                    <div *ngIf="businessForm.get('lastname')?.hasError('required') && businessForm.get('lastname')?.touched"
+                        class="pt-2 error-validation">
+                        Apellido es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="flex md:px-5 lg:px-8">
+                <div class="mb-3 w-5">
+                    <input id="telefono" type="text" formControlName="phone"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Teléfono" />
+                    <div *ngIf="businessForm.get('phone')?.hasError('required') && businessForm.get('phone')?.touched"
+                        class="pt-2 error-validation">
+                        Teléfono es requerido.
+                    </div>
+                </div>
+                <div class="mb-3 w-7">
+                    <input id="localidadDireccion" type="text" formControlName="adress"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Localidad" />
+                    <div *ngIf="businessForm.get('adress')?.hasError('required') && businessForm.get('adress')?.touched"
+                        class="pt-2 error-validation">
+                        Localidad es requerida.
+                    </div>
+                </div>
+            </div>
+            <div class="flex md:px-5 lg:px-8">
+                <div class="mb-3 w-7">
+                    <input id="businessName" type="text" formControlName="businessName"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Nombre del Negocio" />
+                    <div *ngIf="businessForm.get('businessName')?.hasError('required') && businessForm.get('businessName')?.touched"
+                        class="pt-2 error-validation">
+                        Nombre de negocio es requerido.
+                    </div>
+                </div>
+                <div class="mb-3 w-5">
+                    <input id="cuit" type="text" formControlName="cuit"
+                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="CUIT" />
+                    <div *ngIf="businessForm.get('cuit')?.hasError('required') && businessForm.get('cuit')?.touched"
+                        class="pt-2 error-validation">
+                        CUIT es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="email" type="email" formControlName="email"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="E-mail" />
+                <div *ngIf="businessForm.get('email')?.hasError('required') && businessForm.get('email')?.touched"
+                    class="pt-2 error-validation">
+                    Email es requerido.
+                </div>
+                <div *ngIf="businessForm.get('email')?.hasError('email') && businessForm.get('email')?.touched"
+                    class="pt-2 error-validation">
+                    Email no es válido.
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="Password" type="password" formControlName="password"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="Contraseña" />
+                <div *ngIf="businessForm.get('password')?.hasError('required') && businessForm.get('password')?.touched"
+                    class="pt-2 error-validation">
+                    Contraseña es requerida.
+                </div>
+            </div>
+            <div class="mt-5 mb-3 text-center">
+                <button type="submit"
+                    class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-purple-700 hover:border-purple-700 hover:text-white cursor-pointer"
+                    (click)="onSubmit()">
+                    REGISTRARME
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center text-white md:hidden cursor-pointer">
+        <h6 class="my-0 py-5">¿Ya tenés una cuenta? Iniciá Sesión</h6>
+    </div>
+</div>

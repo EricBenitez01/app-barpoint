@@ -10,10 +10,11 @@ export class AuthGuard {
 
     canActivate(): boolean {
         if (this.authService.isLoggedIn()) {
+            console.log("AuthGuard isLoggedIn");
             return true;
         } else {
             // Si el usuario no está logueado, redirige al login
-            this.router.navigate(['/login']);
+            this.router.navigate(['']);
             return false;
         }
     }

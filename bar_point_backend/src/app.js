@@ -2,45 +2,33 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 
-const authRoute = require('./routes/authRoute');
-const usersRoutes = require('./routes/usersRoutes');
-const benefitsRoutes = require('./routes/benefitsRoutes');
-const purchaseRoutes = require('./routes/purchaseRoutes');
-const transaction = require('./routes/transactionRoute');
-const cors = require('cors');
-
 const app = express();
-
 const corsOptions = {
     origin: 'http://localhost:4200', // Dominio de tu aplicación Angular
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 200,
 };
 
+
+
+const authRoute = require('./routes/authRoute');
+const usersRoutes = require('./routes/usersRoutes');
+const benefitsRoutes = require('./routes/benefitsRoutes');
+const purchaseRoutes = require('./routes/purchaseRoutes');
+const transaction = require('./routes/transactionRoute');
+const businessesRoutes = require('./routes/businessesRoutes');
+const cors = require('cors');
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(authRoute, cors(corsOptions));
+app.use(usersRoutes, cors(corsOptions));
+app.use(benefitsRoutes, cors(corsOptions));
+app.use(purchaseRoutes, cors(corsOptions));
+app.use(transaction, cors(corsOptions));
+app.use(businessesRoutes, cors(corsOptions));
 
-// Configurar opciones de CORS
-/* app.get('/', (req, res) => {
-    res.send('Hola, Roberto!');
-}); */
-  
-// Aplicar CORS solo a la ruta /users
-app.use('/api/auth', authRoute, cors(corsOptions));
-app.use('/api/users', usersRoutes, cors(corsOptions));
-app.use('/api/benefits', benefitsRoutes, cors(corsOptions));
-app.use('/api/purchase', purchaseRoutes, cors(corsOptions));
-app.use('/api/transaction', transaction, cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
 
-// Ruta que maneja todas las solicitudes y las redirige al archivo 'index.html'
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend/index.html'));
-});
-/* app.use(express.static('public'));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'index.html'))
-}) */
-app.listen('3002', () => console.log('Server running in port 3002'));
+app.listen('3001', () => console.log('Server running in port 3001'));

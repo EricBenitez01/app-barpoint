@@ -1,0 +1,57 @@
+<div class="md:flex component-container">
+    <div class="md:hidden flex justify-content-center my-0 py-5">
+        <img class="w-8" src="/assets/logo-mobile.png" alt="">
+    </div>
+    <div class="logo-desktop-container hidden md:flex md:flex-column md:align-items-center md:w-5">
+        <img class="w-8" src="/assets/logo-tablet-desktop.png" alt="">
+        <h6 class="text-center text-white px-5">Sabemos que te gusta salir a tomar algo así que ahora te damos la
+            posibilidad de ganar puntos por todo lo que consumas para poder canjerarlos por increíbles promos.</h6>
+    </div>
+    <div class="shadow-md rounded p-4 mx-auto w-90 md:w-7 md:border-noround" style="width: 90%; background: rgba(1, 1, 1, 0.9)">
+        <div class="flex justify-content-evenly lg:px-8">
+            <a href="/businessRegister">
+                <h3 class="button-create-account text-white cursor-pointer">CREAR CUENTA</h3>
+            </a>
+            <h3 class="button-log-in text-white border-bottom-3 pb-1">INICIAR SESIÓN</h3>
+        </div>
+        <div class="flex flex-column align-items-center">
+            <h4 class="text-white mb-0 mt-7">SEGUÍ SUMANDO</h4>
+            <h5 class="text-center text-white mt-2 mb-7 px-3 md:px-5 lg:px-8">
+                Iniciá sesión para seguir disfrutando de los beneficios con nosotros.</h5>
+        </div>
+        <form [formGroup]="usuarioForm" (ngSubmit)="onLogin()">
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="email" type="email" formControlName="email"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="E-mail" />
+                <div *ngIf="usuarioForm.get('email')?.hasError('required') && usuarioForm.get('email')?.touched"
+                    class="pt-2 error-validation">
+                    Correo Electrónico es requerido.
+                </div>
+                <div *ngIf="usuarioForm.get('email')?.hasError('email') && usuarioForm.get('email')?.touched"
+                    class="pt-2 error-validation">
+                    Correo Electrónico no es válido.
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="password" type="password" formControlName="password"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="Contraseña" />
+                <div *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched"
+                    class="pt-2 error-validation">
+                    Contraseña es requerida.
+                </div>
+            </div>
+            <div class="mb-7 mt-6 text-center">
+                <button type="submit"
+                    class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-purple-700 hover:border-purple-700 hover:text-white cursor-pointer"
+                    (onclick)="onClickEvent()">
+                    INICIAR SESIÓN
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center text-white md:hidden cursor-pointer">
+        <h6 class="my-0 py-5">¿Todavía no tenés una cuenta? Registrate</h6>
+    </div>
+</div>

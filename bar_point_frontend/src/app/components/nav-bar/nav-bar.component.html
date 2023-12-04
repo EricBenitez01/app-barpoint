@@ -1,10 +1,13 @@
-<div class="card flex justify-content-between m-4 mt-4">
-    <div>
-        <app-logo></app-logo>
-    </div>
-    <div class="justify-content-center">
-        <p-toast></p-toast>
-        <p-menu #menu [model]="items" [popup]="true"></p-menu>
-        <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars" class="mi-boton"></button>
-    </div>
+<!-- Elemento para escritorio -->
+<div class="md:block hidden">
+    <nav class="text-white p-2" style="background: rgba(1, 1, 1, 0.8)">
+        <div class="container mx-auto flex justify-between items-center">
+            <app-logo></app-logo>
+            <div class="space-x-4">
+                <a class="button-nav-desktop no-underline text-white" href="/profile-user">MIS DATOS</a>
+                <a class="button-nav-desktop no-underline text-white" href="/faqs">SOBRE NOSOTROS</a>
+                <a class="button-nav-desktop no-underline text-white" href="/" (click)="redirectLogin()">LOG OUT</a>
+            </div>
+        </div>
+    </nav>
 </div>

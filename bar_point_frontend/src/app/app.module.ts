@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegisterComponent } from './components/register/register.component';
-import { BenefitComponent } from './components/benefit/benefit.component';
+import { BenefitPopupComponent } from './components/benefit-popup/benefit-popup.component';
 import { BenefitListComponent } from './components/benefit-list/benefit-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -31,6 +31,25 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FaqsComponent } from './components/faqs/faqs.component';
+import { AccordionModule } from 'primeng/accordion';
+
+
+import { BusinessComponent } from './components/business/business.component';
+import { SideNavComponent } from './components/business/side-nav/side-nav.component';
+import { CustomersComponent } from './components/business/customers/customers.component';
+import { PromotionsComponent } from './components/business/promotions/promotions.component';
+import { DashboardComponent } from './components/business/dashboard/dashboard.component';
+import { TableModule } from 'primeng/table';
+import { DashletComponent } from './components/business/dashlet/dashlet.component';
+import { TransactionPopupComponent } from './components/transaction-popup/transaction-popup.component';
+import { DialogModule } from 'primeng/dialog';
+import { PanelModule } from 'primeng/panel';
+import { BusinessLoginComponent } from './components/business-login/business-login.component';
+import { BusinessRegisterComponent } from './components/business-register/business-register.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 
 
 
@@ -40,7 +59,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LoginComponent,
     NavBarComponent,
     RegisterComponent,
-    BenefitComponent,
+    BenefitPopupComponent,
     BenefitListComponent,
     FooterComponent,
     ButtonComponent,
@@ -49,7 +68,20 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BenefitSliderItemComponent,
     UserComponent,
     HomeComponent,
-    CardListComponent
+    CardListComponent,
+    FaqsComponent,
+    ProfileUserComponent,
+    BusinessComponent,
+    FaqsComponent,
+    SideNavComponent,
+    CustomersComponent,
+    PromotionsComponent,
+    DashboardComponent,
+    DashletComponent,
+    TransactionPopupComponent,
+    BusinessLoginComponent,
+    BusinessRegisterComponent,
+    HamburgerMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,10 +99,15 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     DropdownModule,
     ReactiveFormsModule,
     CardModule,
-    CarouselModule
+    CarouselModule,
+    TableModule,
+    AccordionModule,
+    DialogModule,
+    PanelModule,
+    AutoCompleteModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    AuthInterceptor
 ],
   bootstrap: [AppComponent]
 })

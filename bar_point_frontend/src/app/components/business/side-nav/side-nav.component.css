@@ -1,0 +1,11 @@
+.transition-slow {
+    transition: all 0.5s ease-in-out;
+}
+
+.hover-scale-110:hover {
+    transform: scale(1.1);
+}
+
+.hover-scale-125:hover {
+    transform: scale(1.25);
+}

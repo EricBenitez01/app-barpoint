@@ -1,0 +1,41 @@
+<p-button (click)="showDialog()" icon="pi pi-external-link" label="Transacción"></p-button>
+<p-dialog header="Transacción" [(visible)]="visible" [style]="{ width: '50vw' }">
+    <div class="flex py-2 justify-content-center">
+        <div class="max-w-md mx-auto p-4 border border-gray-300 rounded-lg">
+            <p-autoComplete [(ngModel)]="selectedClient" [suggestions]="searchResults"
+                (completeMethod)="searchClient($event)" field="username" placeholder="Buscar Cliente">
+                <ng-template let-user pTemplate="item">
+                    {{ user.username }}
+                </ng-template>
+            </p-autoComplete>
+            <!-- Selector de tipo de transacción (canje o suma de puntos) -->
+            <div class="mb-4">
+                <label for="transactionType" class="block font-semibold">Tipo de Transacción</label>
+                <select id="transactionType" [(ngModel)]="selectedTransactionType" name="selectedTransactionType"
+                    class="w-full border border-gray-300 rounded p-2">
+                    <option value="canje">Canje</option>
+                    <option value="sumaPuntos">Suma de Puntos</option>
+                </select>
+            </div>
+            <!-- Selector de promoción o campo para puntos -->
+            <div class="mb-4" *ngIf="selectedTransactionType === 'canje'">
+                <label for="selectedPromotion" class="block font-semibold">Seleccionar Promoción</label>
+                <select id="selectedPromotion" [(ngModel)]="selectedPromotion" name="selectedPromotion"
+                    class="w-full border border-gray-300 rounded p-2">
+                    <option value="">Seleccionar Promoción</option>
+                    <option *ngFor="let benefit of benefits" [ngValue]="benefit">{{ benefit.benefitname }}</option>
+                </select>
+            </div>
+            <div class="mb-4" *ngIf="selectedTransactionType === 'sumaPuntos'">
+                <label for="pointsToAdd" class="block font-semibold">Puntos a Sumar</label>
+                <input id="pointsToAdd" type="number" [(ngModel)]="pointsToAdd" name="pointsToAdd"
+                    class="w-full border border-gray-300 rounded p-2" />
+            </div>
+            <!-- Botón de Guardar -->
+            <button type="button" class="p-button bg-blue-500 text-white py-2 px-4 rounded"
+                (click)="guardarTransaccion()">
+                Guardar
+            </button>
+        </div>
+    </div>
+</p-dialog>

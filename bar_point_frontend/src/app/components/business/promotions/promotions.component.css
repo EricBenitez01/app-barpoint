@@ -1,0 +1,16 @@
+::ng-deep .p-button {
+    color: white;
+    background: #E61F85 !important;
+    border-radius: 0.25rem;
+    border-width: 0px !important;
+}
+
+:host ::ng-deep .custom-icon-container:hover .pi-pencil {
+    color: white !important;
+    transition: all 0.5s ease-in-out;
+}
+
+:host ::ng-deep .custom-icon-container:hover .pi-trash {
+    color: white !important;
+    transition: all 0.5s ease-in-out;
+}

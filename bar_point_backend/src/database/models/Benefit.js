@@ -12,11 +12,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         benefitname: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(500),
             defaultValue: null
         },
         img: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(500),
             defaultValue: null
         },
         discount: {
@@ -25,6 +25,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         points_req: {
             type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        description: {
+            type: dataTypes.STRING(500),
             allowNull: false
         }
     };
@@ -38,15 +42,13 @@ module.exports = (sequelize, dataTypes) => {
         Benefit.belongsTo(models.Business, {
             as: "business",
             foreignKey: "businessFK"
-        })
-    };
-
-    Benefit.associate = function (models) {
+        });
+    
         Benefit.hasMany(models.Transaction_type, {
             as: "transaction_types",
             foreignKey: "benefitFK"
-        })
-    };
+        });
+    };    
 
     return Benefit
 };

@@ -1,0 +1,101 @@
+h4 {
+    font-family: 'MADE Soulmaze', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+h3, h5, .p-inputtext, button, h6, div.error-validation {
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.p-inputtext {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+button {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+h6 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+div.component-container {
+    min-height: 100vh;
+    align-items: stretch;
+    background: linear-gradient(0deg, rgba(98,70,149,1) 0%, rgba(111,199,217,1) 100%);
+}
+
+.button-log-in {
+    border-color: rgb(111,199,217);
+}
+
+.button-create-account:hover {
+    padding-bottom: 0.25rem !important;
+    color: rgb(111,199,217) !important;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-color: rgb(111,199,217);
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.error-validation {
+    color: rgb(111,199,217) !important;
+}
+
+@media(min-width: 768px) {
+    .logo-desktop-container {
+        padding-top: 30dvh;
+    }
+}
+
+@media(min-width: 992px) {
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 26px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+
+@media(min-width: 1200px) {
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 32px;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+}

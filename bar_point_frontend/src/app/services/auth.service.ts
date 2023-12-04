@@ -1,35 +1,57 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserAuthResponse } from './users.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
     private tokenKey: string = 'auth_bigbangdevs';
-    private apiUrl: string = 'http://localhost:3002';  
+    private apiUrl: string = 'http://localhost:3001';  
 
     constructor(private http: HttpClient) {}
 
-    login(email: string, password: string): Observable<UserAuthResponse> {
+    async loginUser(email: string, password: string): Promise<any> {
         const requestData = {
             email: email, 
             password: password
         };
+
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
             })
         };
 
-        let response = this.http.post<UserAuthResponse>(`${this.apiUrl}/authUser`, requestData, httpOptions);
-        response.subscribe(
-            (token) => {
-                this.setToken(token.token)
-            }
-        )
-        return response;
+        try {
+            const authResponse = await this.http.post<any>(`${this.apiUrl}/authUser`, requestData, httpOptions).toPromise();
+            // Se almacena el token
+            this.setToken(authResponse.token);
+            return authResponse;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async loginBusiness(email: string, password: string): Promise<any> {
+        const requestData = {
+            email: email, 
+            password: password
+        };
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+            })
+        };
+
+        try {
+            const authResponse = await this.http.post<any>(`${this.apiUrl}/authBusiness`, requestData, httpOptions).toPromise();
+            // Se almacena el token
+            this.setToken(authResponse.token);
+            return authResponse;
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     logout(): void {
@@ -39,7 +61,6 @@ export class AuthService {
     setToken(token: string): void {
         // Se almacena el token en localStorage
         localStorage.setItem(this.tokenKey, token);
-        console.log(token);
     }
 
     removeToken(): void {
@@ -51,7 +72,8 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        return !!this.getToken();
+        const token = this.getToken();
+        return !!token;
     }
 
 }

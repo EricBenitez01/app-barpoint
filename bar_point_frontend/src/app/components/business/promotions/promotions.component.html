@@ -1,0 +1,47 @@
+<div>
+    <p-table 
+        [value]="benefits"  
+        dataKey="code" 
+        [rows]="6"
+        [paginator]="true"
+        class="px-10"
+    >
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                PROMOS
+                <div>
+                    <!-- <p-button class="mr-2" label="Agregar Promo"></p-button> --> 
+                    <app-benefit-popup [businessId]="businessId"></app-benefit-popup>
+                    <p-button icon="pi pi-refresh" (onClick)="reloadBenefits()"></p-button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Título</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th>Puntos</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-benefits>
+            <tr class="text-xl mx-10">
+                <td>{{benefits.benefitname}}</td>
+                <td><img src="../../../assets/img/Rectangle 7.png" width="100" class="shadow-4" /></td>
+                <td>{{benefits.description}}</td>
+                <td class="whitespace-nowrap"><span class="text-pink-600 font-normal">{{benefits.points_req}}</span> puntos</td>
+                <td>
+                    <div class="flex">
+                        <div class="flex items-center justify-center rounded-md w-5 h-8 border-2 border-gray-300 hover:bg-pink-400 hover:border-white custom-icon-container">
+                            <i class="pi pi-pencil text-gray-700 cursor-pointer"></i>
+                        </div>
+                        <div class="flex items-center justify-center rounded-md w-5 h-8 border-2 border-gray-300 ml-1 hover:bg-pink-400 hover:border-white custom-icon-container">
+                            <i class="pi pi-trash text-gray-700 cursor-pointer"></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

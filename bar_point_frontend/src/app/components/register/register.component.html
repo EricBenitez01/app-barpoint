@@ -1,119 +1,103 @@
 <div class="md:flex component-container">
-
     <div class="md:hidden flex justify-content-center my-5">
-
         <img class="w-8" src="/assets/logo-mobile.png" alt="">
-
     </div>
-
-    <div class="hidden md:flex md:flex-column md:align-items-center md:justify-content-center md:w-5">
+    <div class="logo-desktop-container hidden md:flex md:flex-column md:align-items-center md:w-5">
         <img class="w-8" src="/assets/logo-tablet-desktop.png" alt="">
-        <h6 class="text-center text-white px-5">Sabemos que te gusta salir a tomar algo así que ahora te damos la posibilidad de ganar
+        <h6 class="text-center text-white px-5">Sabemos que te gusta salir a tomar algo así que ahora te damos la
+            posibilidad de ganar
             puntos por todo lo que consumas para poder canjerarlos por increíbles promos.</h6>
     </div>
-
-    
-
-        <div class="shadow-md rounded p-4 mx-auto w-90 md:w-7" style="width: 90%; background: rgba(1, 1, 1, 0.8)">
-
-            <div class="flex justify-content-evenly lg:px-8">
-                <h3 class="text-white border-bottom-3 pb-1 border-pink-600">CREAR CUENTA</h3>
-                <h3 class="text-white cursor-pointer">INICIAR SESIÓN</h3>
-            </div>
-
-            <div class="flex flex-column align-items-center">
-                <h4 class="text-white mb-0 mt-2">COMENZÁ A SUMAR</h4>
-                <h5 class="text-center text-white mt-2 mb-5 px-3 md:px-5 lg:px-8">Ingresá tus datos y comenzá a disfrutar de tus
-                    beneficios con
-                    nosotros.</h5>
-            </div>
-
-            <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
-                <div class="mb-4 md:px-5 lg:px-8">
-                    <input id="nombreApellido" type="text" formControlName="username"
-                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
-                        placeholder="Nombre y Apellido" />
-                    <div *ngIf="clienteForm.get('username')?.hasError('required') && clienteForm.get('username')?.touched"
-                        class="text-pink-400 pt-2 error-validation">
-                        Nombre y Apellido es requerido.
-                    </div>
-                </div>
-
-                <div class="flex md:px-5 lg:px-8">
-                    <div class="mb-4 w-6 md:w-5">
-                        <p-dropdown id="genderSelect" [options]="genderList" formControlName="gender"
-                            placeholder="Género" [style]="{'padding': '0.2rem 0 0.3rem 0'}">
-                            
-                            <option *ngFor="let option of genderList" [value]="option">{{ option }}</option>
-                        </p-dropdown>
-                        <div *ngIf="clienteForm.get('gender')?.hasError('required') && clienteForm.get('gender')?.touched"
-                            class="text-pink-400 pt-2 error-validation">
-                            Género es requerido.
-                        </div>
-                    </div>
-
-                    <div class="mb-4 w-6 md:w-7">
-                        <p-calendar id="fechaNacimiento" formControlName="birthday" [showIcon]="true"
-                            [inputStyle]="{'padding': '1rem 0 1rem 1rem'}"
-                            class="w-full py-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
-                            placeholder="Cumpleaños">
-                        </p-calendar>
-                        <div *ngIf="clienteForm.get('birthday')?.hasError('required') && clienteForm.get('birthday')?.touched"
-                            class="text-pink-400 pt-2 error-validation">
-                            Cumpleaños es requerido.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4 md:px-5 lg:px-8">
-                    <input id="localidadDireccion" type="text" formControlName="address"
-                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
-                        placeholder="Localidad" />
-                    <div *ngIf="clienteForm.get('address')?.hasError('required') && clienteForm.get('address')?.touched"
-                        class="text-pink-400 pt-2 error-validation">
-                        Localidad es requerida.
-                    </div>
-                </div>
-
-                <div class="mb-4 md:px-5 lg:px-8">
-                    <input id="email" type="email" formControlName="email"
-                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
-                        placeholder="E-mail" />
-                    <div *ngIf="clienteForm.get('email')?.hasError('required') && clienteForm.get('email')?.touched"
-                        class="text-pink-400 pt-2 error-validation">
-                        Email es requerido.
-                    </div>
-                    <div *ngIf="clienteForm.get('email')?.hasError('email') && clienteForm.get('email')?.touched"
-                        class="text-pink-400 pt-2 error-validation">
-                        Email no es válido.
-                    </div>
-                </div>
-
-                <div class="mb-4 md:px-5 lg:px-8">
-                    <input id="Password" type="password" formControlName="password"
-                        class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
-                        placeholder="Contraseña" />
-                    <div *ngIf="clienteForm.get('password')?.hasError('required') && clienteForm.get('password')?.touched"
-                        class="text-pink-400 pt-2 error-validation">
-                        Contraseña es requerida.
-                    </div>
-                </div>
-
-                <div class="mt-5 mb-3 text-center">
-                    <button type="submit"
-                        class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-pink-600 hover:border-pink-600 hover:text-white cursor-pointer"
-                        (click)="onSubmit()">
-                        REGISTRARME
-                    </button>
-                </div>
-            </form>
+    <div class="shadow-md rounded p-4 mx-auto w-90 md:w-7 md:border-noround"
+        style="width: 90%; background: rgba(1, 1, 1, 0.8)">
+        <div class="flex justify-content-evenly lg:px-8">
+            <h3 class="button-create-account text-white border-bottom-3 pb-1">CREAR CUENTA</h3>
+            <a href="/">
+                <h3 class="button-log-in text-white cursor-pointer">INICIAR SESIÓN</h3>
+            </a>
         </div>
-
-        <div class="text-center text-white md:hidden cursor-pointer">
-            <h6>¿Ya tenés una cuenta? Iniciá Sesión</h6>
+        <div class="flex flex-column align-items-center">
+            <h4 class="text-white mb-0 mt-2">COMENZÁ A SUMAR</h4>
+            <h5 class="text-center text-white mt-2 mb-5 px-3 md:px-5 lg:px-8">Ingresá tus datos y comenzá a disfrutar de
+                tus
+                beneficios con
+                nosotros.</h5>
         </div>
+        <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="nombreApellido" type="text" formControlName="username"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="Nombre y Apellido" />
+                <div *ngIf="clienteForm.get('username')?.hasError('required') && clienteForm.get('username')?.touched"
+                    class="text-pink-400 pt-2 error-validation">
+                    Nombre y Apellido es requerido.
+                </div>
+            </div>
+            <div class="flex md:px-5 lg:px-8">
+                <div class="mb-3 w-6 md:w-5">
+                    <p-dropdown id="genderSelect" [options]="genderList" formControlName="gender" placeholder="Género"
+                        [style]="{'padding': '0.1rem 0 0.2rem 0.2rem'}">
 
-    
-
-
+                        <option *ngFor="let option of genderList" [value]="option">{{ option }}</option>
+                    </p-dropdown>
+                    <div *ngIf="clienteForm.get('gender')?.hasError('required') && clienteForm.get('gender')?.touched"
+                        class="text-pink-400 pt-2 error-validation">
+                        Género es requerido.
+                    </div>
+                </div>
+                <div class="mb-3 w-6 md:w-7">
+                    <p-calendar id="fechaNacimiento" formControlName="birthday" [showIcon]="true"
+                        [inputStyle]="{'padding': '0.9rem 0 0.9rem 0.9rem'}"
+                        class="w-full py-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                        placeholder="Cumpleaños">
+                    </p-calendar>
+                    <div *ngIf="clienteForm.get('birthday')?.hasError('required') && clienteForm.get('birthday')?.touched"
+                        class="text-pink-400 pt-2 error-validation">
+                        Cumpleaños es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="localidadDireccion" type="text" formControlName="address"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="Localidad" />
+                <div *ngIf="clienteForm.get('address')?.hasError('required') && clienteForm.get('address')?.touched"
+                    class="text-pink-400 pt-2 error-validation">
+                    Localidad es requerida.
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="email" type="email" formControlName="email"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="E-mail" />
+                <div *ngIf="clienteForm.get('email')?.hasError('required') && clienteForm.get('email')?.touched"
+                    class="text-pink-400 pt-2 error-validation">
+                    Email es requerido.
+                </div>
+                <div *ngIf="clienteForm.get('email')?.hasError('email') && clienteForm.get('email')?.touched"
+                    class="text-pink-400 pt-2 error-validation">
+                    Email no es válido.
+                </div>
+            </div>
+            <div class="mb-3 md:px-5 lg:px-8">
+                <input id="Password" type="password" formControlName="password"
+                    class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+                    placeholder="Contraseña" />
+                <div *ngIf="clienteForm.get('password')?.hasError('required') && clienteForm.get('password')?.touched"
+                    class="text-pink-400 pt-2 error-validation">
+                    Contraseña es requerida.
+                </div>
+            </div>
+            <div class="mt-5 mb-3 text-center">
+                <button type="submit"
+                    class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-pink-600 hover:border-pink-600 hover:text-white cursor-pointer"
+                    (click)="onSubmit()">
+                    REGISTRARME
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center text-white md:hidden cursor-pointer">
+        <h6>¿Ya tenés una cuenta? Iniciá Sesión</h6>
+    </div>
 </div>

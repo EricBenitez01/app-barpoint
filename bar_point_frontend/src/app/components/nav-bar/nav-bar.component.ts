@@ -1,16 +1,32 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css'],
-  providers: [MessageService]
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.css'],
+    providers: [MessageService]
 })
 export class NavBarComponent {
 
-  items: any[] | undefined;
-  constructor(private messageService: MessageService) {}
+    items: any[] | undefined;
+    constructor(private messageService: MessageService, private router: Router, private authService: AuthService) { }
+
+    redirectLogin() {
+        // Se cierra la sesión del user
+        this.authService.logout();
+        // Se redirige al login
+        this.router.navigate(['']);
+    }
+
+    redirectHome() {
+        if (this.authService.isLoggedIn()) {
+            this.router.navigate(['home']);
+        }
+    }
+
     ngOnInit() {
         this.items = [
             {
@@ -20,7 +36,7 @@ export class NavBarComponent {
                         label: 'Mis datos',
                         icon: 'pi pi-user',
                         command: () => {
-                            this.update();
+                            this.router.navigate(['profile-user']);
                         }
                     }
                 ]
@@ -30,27 +46,27 @@ export class NavBarComponent {
                 items: [
                     {
                         label: 'FAQs',
-                        icon: 'pi pi-check',
+                        icon: 'pi pi-question-circle',
                         command: () => {
-                            this.update();
+                            this.router.navigate(['faqs']);
                         }
                     },
                     {
                         label: 'Menú',
-                        icon: 'pi pi-check',
+                        icon: 'pi pi-map',
                         command: () => {
                             this.update();
                         }
                     },
                     {
                         label: 'Log Out',
-                        icon: 'pi pi-check',
+                        icon: 'pi pi-sign-out',
                         command: () => {
-                            this.update();
+                            this.redirectLogin();
                         }
                     }
                 ]
-                
+
             }
         ];
     }
@@ -60,6 +76,6 @@ export class NavBarComponent {
     }
 
     delete() {
-      alert('El boton funciona');
+        alert('El boton funciona');
     }
 }

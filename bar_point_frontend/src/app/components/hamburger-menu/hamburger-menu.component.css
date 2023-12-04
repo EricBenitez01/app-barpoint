@@ -1,0 +1,30 @@
+.p-button {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+.p-button:enabled:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+.p-button:focus {
+    box-shadow: none;
+}
+::ng-deep .p-button-icon.pi.pi-bars {
+    font-size: 24px !important;
+}
+.p-button.p-button-icon-only {
+    width: 2.3rem;
+}
+::ng-deep .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+    color: #3B82F6 !important;
+}
+::ng-deep .p-element .p-menuitem {
+    justify-content: flex-start !important;
+}
+
+::ng-deep .p-menu .p-submenu-header {
+    font-family: 'MADE Soulmaze', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    justify-content: flex-start !important;
+}

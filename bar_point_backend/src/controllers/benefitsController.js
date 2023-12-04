@@ -1,24 +1,33 @@
 const db = require('../database/models');
 
 module.exports = {
-    all: async (req, res) => {
-
+    list: async (req, res) => {
         try {
-            let { order = "id" } = req.query;
+            let businessId  = req.params.id;
+            let order = "id";
             let orders = ["id", "benefitname", "point_req"];
-
+    
             if (!orders.includes(order)) {
-                throw new Error(`The ${order} field does not exist. Allowed fields : [benefitname,point_req]`);
+                throw new Error(`El campo ${order} no existe. Campos permitidos: [benefitname, point_req]`);
             }
+            let whereClause = {};
+
+            if (businessId) {
+                whereClause.businessFK = businessId;
+            }
+    
             let benefits = await db.Benefit.findAll({
+                /*
+                Se utiliza para traer datos del negocio  
                 include: [
                     {
-                        association: 'business',
-                        attributes: ['username']
+                        association: 'business'
                     }
-                ],
+                ], */
+                where: whereClause,
                 order: [order],
-            })
+            });
+    
             if (benefits.length) {
                 return res.status(200).json({
                     ok: true,
@@ -26,16 +35,17 @@ module.exports = {
                         total: benefits.length
                     },
                     data: benefits
-                })
+                });
             }
-            throw new Error("There are no benefits");
-
+    
+            throw new Error("No hay beneficios");
+    
         } catch (error) {
             console.log(error);
             return res.status(500).json({
                 ok: false,
-                msg: error.message ? error.message : "Contact the site administrator"
-            })
+                msg: error.message ? error.message : "Contacte al administrador del sitio"
+            });
         }
     },
     detail: async (req, res) => {
@@ -76,9 +86,9 @@ module.exports = {
             });
         }
     },
-    store: async (req, res) => {
+    create: async (req, res) => {
 
-        const { businessFK, benefitname,/*  img, */ discount, points_req } = req.body;
+        const { businessFK, benefitname, img, discount, points_req, description } = req.body;
 
         try {
             let newBenefit = await db.Benefit.create(
@@ -86,8 +96,9 @@ module.exports = {
                     businessFK: +businessFK,
                     benefitname: benefitname?.trim(),
                     discount: +discount,
-                    points_req: +points_req
-
+                    points_req: +points_req,
+                    img: req.file?.filename,
+                    description: description,
                 }
             )
 
@@ -111,7 +122,7 @@ module.exports = {
     },
     update: async (req, res) => {
 
-        const { benefitname, discount,/*  img, */ points_req } = req.body;
+        const { benefitname, discount, img, points_req, description } = req.body;
 
         try {
             let updateBenefit = await db.Benefit.findByPk(req.params.id);
@@ -119,6 +130,8 @@ module.exports = {
             updateBenefit.benefitname = benefitname?.trim();
             updateBenefit.discount = +discount;
             updateBenefit.points_req = +points_req;
+            updateBenefit.img = req.file?.filename || updateBenefit.img;
+            updateBenefit.description = +description;
 
             await updateBenefit.save();
 

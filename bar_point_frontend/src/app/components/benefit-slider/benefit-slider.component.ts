@@ -50,8 +50,13 @@ export class BenefitSliderComponent {
     ngOnInit() {
         this.responsiveOptions = [
             {
-                breakpoint: '1199px',
-                numVisible: 1,
+                breakpoint: '2000px',
+                numVisible: 4,
+                numScroll: 1
+            },
+            {
+                breakpoint: '1460px',
+                numVisible: 3,
                 numScroll: 1
             },
             {

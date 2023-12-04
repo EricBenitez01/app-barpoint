@@ -53,3 +53,9 @@
     padding-bottom: 10px;
 }
 
+@media(max-width: 395px) {
+    .cardContainer {
+        width: 200px;
+    }
+}
+
