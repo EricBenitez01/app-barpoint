@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface UserLogin {
     email: string,
@@ -15,12 +15,15 @@ export interface UserLogin {
 })
 export class LoginComponent {
     usuarioForm: FormGroup;
+    clicking: boolean = false;
+    businessId!: number;
 
     constructor(
         private authService: AuthService, 
         private cdr: ChangeDetectorRef, 
         private fb: FormBuilder,
-        private router: Router
+        private router: Router, 
+        private route: ActivatedRoute 
     ) {
         this.usuarioForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
@@ -37,11 +40,12 @@ export class LoginComponent {
         try {
             const response = await this.authService.loginUser(user.email, user.password);
             this.cdr.detectChanges();
-
+            this.route.params.subscribe(params => {
+            this.businessId = params['id'];})
             if (!response.error) {
                 this.authService.setToken(response.token);
                 // Se redirige a la ruta Home
-                this.router.navigate(['home']);
+                this.router.navigate(['home', this.businessId]);
             }
             
         } catch (error) {
@@ -50,7 +54,14 @@ export class LoginComponent {
 
     }
 
-    onClickEvent() {
-        this.onLogin();
+    onClickEvent(event: Event) {
+        event.preventDefault();
+        if (!this.clicking) {
+            this.clicking = true;
+            setTimeout(() => {
+                this.clicking = false;
+            }, 1000);
+            this.onLogin();
+        }
     }
 }

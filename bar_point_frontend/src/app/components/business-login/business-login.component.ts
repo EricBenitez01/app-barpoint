@@ -14,7 +14,8 @@ export interface BusinessLogin {
     styleUrls: ['./business-login.component.css']
 })
 export class BusinessLoginComponent {
-    usuarioForm: FormGroup;
+    businessLoginForm: FormGroup;
+    clicking: boolean = false;
 
     constructor(
         private authService: AuthService, 
@@ -22,7 +23,7 @@ export class BusinessLoginComponent {
         private fb: FormBuilder,
         private router: Router
     ) {
-        this.usuarioForm = this.fb.group({
+        this.businessLoginForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required]
         });
@@ -30,8 +31,8 @@ export class BusinessLoginComponent {
 
     async onLogin() {
         const business: BusinessLogin = {
-            email: this.usuarioForm.value.email,
-            password: this.usuarioForm.value.password
+            email: this.businessLoginForm.value.email,
+            password: this.businessLoginForm.value.password
         };
 
         try {
@@ -49,7 +50,14 @@ export class BusinessLoginComponent {
 
     }
 
-    onClickEvent() {
-        this.onLogin();
+    onClickEvent(event: Event) {
+        event.preventDefault();
+        if (!this.clicking) {
+            this.clicking = true;
+            setTimeout(() => {
+                this.clicking = false;
+            }, 1000);
+            this.onLogin();
+        }
     }
 }

@@ -1,5 +1,5 @@
 <div class="text-center bg-gray-50">
-    <div class="px-4">
+    <div>
         <p-table 
             [value]="customers"  
             dataKey="code" 
@@ -9,8 +9,10 @@
             <ng-template pTemplate="caption">
                 <div class="flex align-items-center justify-content-between">
                     CLIENTES
-                    <app-transaction-popup class="mr-2"></app-transaction-popup>
-                    <p-button icon="pi pi-refresh"></p-button>
+                    <div class="flex">
+                        <app-transaction-popup class="mr-2"></app-transaction-popup>
+                        <p-button icon="pi pi-refresh"></p-button>
+                    </div>
                 </div>
             </ng-template>
             <ng-template pTemplate="header">

@@ -91,7 +91,7 @@
             <div class="mt-5 mb-3 text-center">
                 <button type="submit"
                     class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-pink-600 hover:border-pink-600 hover:text-white cursor-pointer"
-                    (click)="onSubmit()">
+                    (click)="onClickEvent($event)" [disabled]="clienteForm.invalid">
                     REGISTRARME
                 </button>
             </div>

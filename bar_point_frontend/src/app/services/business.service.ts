@@ -8,7 +8,7 @@ import { UsersResponse } from './users.service';
 	providedIn: 'root'
 })
 export class BusinessService {
-	private baseUrl = 'http://localhost:3001';
+	private baseUrl = 'http://localhost:3001/api';
 
 	constructor(
 		private http: HttpClient, 

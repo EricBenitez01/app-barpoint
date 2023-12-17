@@ -12,9 +12,10 @@ import { BusinessRegisterComponent } from './components/business-register/busine
 import { BusinessLoginComponent } from './components/business-login/business-login.component';
 
 const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: '', redirectTo: '/login/1', pathMatch: 'full' },
+    { path: 'login/:id', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', component: UserComponent, canActivate: [AuthGuard] },
     { path: 'profile-user', component: ProfileUserComponent, canActivate: [AuthGuard] },
     { path: 'business', component: BusinessComponent, canActivate: [AuthGuard]},

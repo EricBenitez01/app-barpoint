@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importa FormGroup y Validators
+import { Router } from '@angular/router';
 import { Business, BusinessService } from 'src/app/services/business.service';
 
 @Component({
@@ -20,8 +21,14 @@ export class BusinessRegisterComponent {
         password: "",
         rolFK: 2
     };
+    clicking: boolean = false;
 
-    constructor(private formBuilder: FormBuilder, private userService: BusinessService, private cdr: ChangeDetectorRef, private fb: FormBuilder) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private userService: BusinessService,
+        private cdr: ChangeDetectorRef, 
+        private fb: FormBuilder,
+        private router: Router) {
         this.businessForm = this.formBuilder.group({
             name: ['', [Validators.required]],
             lastname: ['', [Validators.required]],
@@ -49,6 +56,18 @@ export class BusinessRegisterComponent {
                     console.error(error);
                 }
             );
+        }
+    }
+
+    onClickEvent(event: Event) {
+        event.preventDefault();
+        if (!this.clicking) {
+            this.clicking = true;
+            setTimeout(() => {
+                this.clicking = false;
+            }, 1000);
+            this.onSubmit();
+            this.router.navigate(['businessLogin']);
         }
     }
 };

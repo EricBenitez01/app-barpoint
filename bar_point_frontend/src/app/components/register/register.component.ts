@@ -19,10 +19,14 @@ export class RegisterComponent {
         password: "",
         rolFK: 1
     };
-
     genderList: string[] = [];
+    clicking: boolean = false;
 
-    constructor(private userService: UsersService, private cdr: ChangeDetectorRef, private fb: FormBuilder, private router: Router) {
+    constructor(
+        private userService: UsersService,
+        private cdr: ChangeDetectorRef, 
+        private fb: FormBuilder, 
+        private router: Router) {
         // Inicializa el FormGroup y define las validaciones
         this.clienteForm = this.fb.group({
             username: ['', Validators.required], // Campo nombreApellido con validación requerida
@@ -39,18 +43,28 @@ export class RegisterComponent {
     }
 
     async onSubmit() {
-        if (this.clienteForm.valid) { // Verifica si el formulario es válido
+        if (this.clienteForm.valid) {
             this.cliente = { ...this.cliente, ...this.clienteForm.value };
             let response = await this.userService.createUser(this.cliente).subscribe(
                 (data) => {
                     this.cdr.detectChanges();
-                    console.log(data);
                 },
                 (error) => {
                     console.error(error);
                 }
             );
         }
-        this.router.navigate(['login']);
+    }
+
+    onClickEvent(event: Event) {
+        event.preventDefault();
+        if (!this.clicking) {
+            this.clicking = true;
+            setTimeout(() => {
+                this.clicking = false;
+            }, 1000);
+            this.onSubmit();
+            this.router.navigate(['login']);
+        }
     }
 }

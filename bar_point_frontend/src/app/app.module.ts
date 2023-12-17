@@ -52,6 +52,9 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 
 
+import { FileUploadModule } from 'primeng/fileupload';
+import { BenefitPopupEditComponent } from './components/benefit-popup-edit/benefit-popup-edit.component';
+import { BenefitPopupDeleteComponent } from './components/benefit-popup-delete/benefit-popup-delete.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +85,8 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
     BusinessLoginComponent,
     BusinessRegisterComponent,
     HamburgerMenuComponent,
+    BenefitPopupEditComponent,
+    BenefitPopupDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,6 +110,7 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
     DialogModule,
     PanelModule,
     AutoCompleteModule,
+    FileUploadModule
   ],
   providers: [
     AuthInterceptor

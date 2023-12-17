@@ -19,16 +19,16 @@
             <h5 class="text-center text-white mt-2 mb-7 px-3 md:px-5 lg:px-8">
                 Iniciá sesión para seguir disfrutando de los beneficios con nosotros.</h5>
         </div>
-        <form [formGroup]="usuarioForm" (ngSubmit)="onLogin()">
+        <form [formGroup]="businessLoginForm" (ngSubmit)="onLogin()">
             <div class="mb-3 md:px-5 lg:px-8">
                 <input id="email" type="email" formControlName="email"
                     class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
                     placeholder="E-mail" />
-                <div *ngIf="usuarioForm.get('email')?.hasError('required') && usuarioForm.get('email')?.touched"
+                <div *ngIf="businessLoginForm.get('email')?.hasError('required') && businessLoginForm.get('email')?.touched"
                     class="pt-2 error-validation">
                     Correo Electrónico es requerido.
                 </div>
-                <div *ngIf="usuarioForm.get('email')?.hasError('email') && usuarioForm.get('email')?.touched"
+                <div *ngIf="businessLoginForm.get('email')?.hasError('email') && businessLoginForm.get('email')?.touched"
                     class="pt-2 error-validation">
                     Correo Electrónico no es válido.
                 </div>
@@ -37,7 +37,7 @@
                 <input id="password" type="password" formControlName="password"
                     class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
                     placeholder="Contraseña" />
-                <div *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched"
+                <div *ngIf="businessLoginForm.get('password')?.hasError('required') && businessLoginForm.get('password')?.touched"
                     class="pt-2 error-validation">
                     Contraseña es requerida.
                 </div>
@@ -45,7 +45,7 @@
             <div class="mb-7 mt-6 text-center">
                 <button type="submit"
                     class="bg-transparent py-3 px-5 text-gray-600 border-solid border-gray-600 border-round-3xl hover:bg-purple-700 hover:border-purple-700 hover:text-white cursor-pointer"
-                    (onclick)="onClickEvent()">
+                    (onclick)="onClickEvent($event)" [disabled]="businessLoginForm.invalid">
                     INICIAR SESIÓN
                 </button>
             </div>

@@ -9,7 +9,7 @@ import { UsersResponse } from './users.service';
 })
 
 export class TransactionService {
-	private baseUrl = 'http://localhost:3001';
+	private baseUrl = 'http://localhost:3001/api';
 
 	constructor(
 		private http: HttpClient, 

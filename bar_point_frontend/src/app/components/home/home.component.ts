@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  businessId!: number;
+  
+  constructor(private route: ActivatedRoute ) { }
 
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+    this.businessId = params['id'];})
+  }
+  
 }

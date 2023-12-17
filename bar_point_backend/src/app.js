@@ -6,6 +6,7 @@ const usersRoutes = require('./routes/usersRoutes');
 const benefitsRoutes = require('./routes/benefitsRoutes');
 const purchaseRoutes = require('./routes/purchaseRoutes');
 const transaction = require('./routes/transactionRoute');
+const business = require('./routes/businessesRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -26,11 +27,12 @@ app.use(cors(corsOptions));
 }); */
 
 // Aplicar CORS solo a la ruta /users
-app.use('/api/auth', authRoute, cors(corsOptions));
-app.use('/api/users', usersRoutes, cors(corsOptions));
-app.use('/api/benefits', benefitsRoutes, cors(corsOptions));
-app.use('/api/purchase', purchaseRoutes, cors(corsOptions));
-app.use('/api/transaction', transaction, cors(corsOptions));
+app.use('/api/', authRoute, cors(corsOptions));
+app.use('/api/', usersRoutes, cors(corsOptions));
+app.use('/api/', benefitsRoutes, cors(corsOptions));
+app.use('/api/', purchaseRoutes, cors(corsOptions));
+app.use('/api/', transaction, cors(corsOptions));
+app.use('/api/', business, cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
 
@@ -42,4 +44,4 @@ app.get('*', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname,'public', 'index.html'))
 }) */
-app.listen('3002', () => console.log('Server running in port 3002'));
+app.listen('3001', () => console.log('Server running in port 3001'));

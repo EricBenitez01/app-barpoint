@@ -13,6 +13,17 @@
                 <label for="description" class="block font-semibold">Descripción</label>
                 <input id="description" type="text" [(ngModel)]="description" name="description" class="w-full border border-gray-300 rounded p-2" />
             </div>
+            <!-- Imagen -->
+            <div class="mb-4">
+                <label for="image" class="block font-semibold">Imagen</label>
+                <p-fileUpload
+                    type="file"
+                    name="image"
+                    mode="basic"
+                    chooseLabel="Seleccione un archivo..."
+                    (onSelect)="onFileSelect($event)"
+                ></p-fileUpload>
+            </div>
             <!-- Descuentos -->
             <div class="mb-4">
                 <label for="discount" class="block font-semibold">Descuento</label>

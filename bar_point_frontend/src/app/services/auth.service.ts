@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
     private tokenKey: string = 'auth_bigbangdevs';
-    private apiUrl: string = 'http://localhost:3001';  
+    private apiUrl: string = 'http://localhost:3001/api';
 
     constructor(private http: HttpClient) {}
 
