@@ -8,7 +8,7 @@ import { UsersResponse } from './users.service';
 	providedIn: 'root'
 })
 export class BusinessService {
-	private baseUrl = 'http://localhost:3001/api';
+	private baseUrl = 'https://barpoint-6cc8.onrender.com/api';
 
 	constructor(
 		private http: HttpClient, 
