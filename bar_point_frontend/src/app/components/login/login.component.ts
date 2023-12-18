@@ -31,7 +31,11 @@ export class LoginComponent {
             password: ['', Validators.required]
         });
     }
-
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            this.businessId = params['id'];
+        })
+    }
     async onLogin() {
         const user: UserLogin = {
             email: this.usuarioForm.value.email,
