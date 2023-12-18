@@ -60,28 +60,28 @@ module.exports = (sequelize, dataTypes) => {
     Business.associate = function (models) {
         Business.hasMany(models.Benefit, {
             as: "benefits",
-            foreignKey: "businessfk "
+            foreignKey: "businessfk"
         })
     };
 
     Business.associate = function (models) {
         Business.hasMany(models.Purchase, {
             as: "purchases",
-            foreignKey: "businessfk "
+            foreignKey: "businessfk"
         })
     };
 
     Business.associate = function (models) {
         Business.hasMany(models.User_points, {
             as: "user_points",
-            foreignKey: "businessfk "
+            foreignKey: "businessfk"
         })
     };
 
     Business.associate = function (models) {
         Business.hasMany(models.Transaction, {
             as: "transactions",
-            foreignKey: "businessfk "
+            foreignKey: "businessfk"
         })
     };
 

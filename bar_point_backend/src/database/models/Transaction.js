@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
         }),
         Transaction.belongsTo(models.Business, {
             as: "business",
-            foreignKey: "businessfk "
+            foreignKey: "businessfk"
         }),
         Transaction.belongsTo(models.Transaction_type, {
             as: "transaction_type",
