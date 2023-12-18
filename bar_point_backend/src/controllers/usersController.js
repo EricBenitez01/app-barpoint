@@ -130,7 +130,7 @@ module.exports = {
                 //si hay un nuevo usuario, se debe crear un registro relacionandolo con el negocio
                 await db.User_points.create({
                     userfk: newUser.id,
-                    businessfk : businessId,
+                    businessfk: businessId,
                     quantity: 0,
                 });
                 
