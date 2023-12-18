@@ -14,7 +14,7 @@ import { BusinessLoginComponent } from './components/business-login/business-log
 const routes: Routes = [
     { path: '', redirectTo: '/login/1', pathMatch: 'full' },
     { path: 'login/:id', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'register/:id', component: RegisterComponent },
     { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', component: UserComponent, canActivate: [AuthGuard] },
     { path: 'profile-user', component: ProfileUserComponent, canActivate: [AuthGuard] },

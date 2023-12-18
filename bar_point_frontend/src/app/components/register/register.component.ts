@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importa FormGroup y Validators
 import { User, UsersService } from 'src/app/services/users.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+    businessId!: number;
     clienteForm: FormGroup; // Define un FormGroup para el formulario
     cliente: User = {
         username: "",
@@ -17,7 +18,8 @@ export class RegisterComponent {
         address: "",
         gender: "",
         password: "",
-        rolfk: 1
+        rolfk: 1,
+        businessId: this.businessId
     };
     genderList: string[] = [];
     clicking: boolean = false;
@@ -26,7 +28,8 @@ export class RegisterComponent {
         private userService: UsersService,
         private cdr: ChangeDetectorRef, 
         private fb: FormBuilder, 
-        private router: Router) {
+        private router: Router,
+        private route: ActivatedRoute) {
         // Inicializa el FormGroup y define las validaciones
         this.clienteForm = this.fb.group({
             username: ['', Validators.required], // Campo nombreApellido con validación requerida
@@ -40,6 +43,8 @@ export class RegisterComponent {
 
     ngOnInit() {
         this.genderList = ["Masculino", "Femenino", "Otro"];
+        this.route.params.subscribe(params => {
+            this.businessId = params['id'];})
     }
 
     async onSubmit() {
@@ -64,7 +69,11 @@ export class RegisterComponent {
                 this.clicking = false;
             }, 1000);
             this.onSubmit();
-            this.router.navigate(['login']);
+            this.router.navigate(['login', this.businessId]);
         }
+    }
+
+    toLogin() {
+        this.router.navigate(['login', this.businessId]);
     }
 }

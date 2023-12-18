@@ -97,7 +97,7 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { username, email, address, gender, birthday, password, rolFK } = req.body;
+        const { username, email, address, gender, birthday, password, rolFK, businessId } = req.body;
 
         try {
 
@@ -127,7 +127,13 @@ module.exports = {
             )
 
             if (newUser) {
-
+                //si hay un nuevo usuario, se debe crear un registro relacionandolo con el negocio
+                await db.User_points.create({
+                    userfk: newUser.id,
+                    businessfk : businessId,
+                    quantity: 0,
+                });
+                
                 return res.status(200).json({
                     ok: true,
                     meta: {

@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export interface UserLogin {
     email: string,
-    password: string
+    password: string,
+    businessId: number
 }
 
 @Component({
@@ -34,11 +35,12 @@ export class LoginComponent {
     async onLogin() {
         const user: UserLogin = {
             email: this.usuarioForm.value.email,
-            password: this.usuarioForm.value.password
+            password: this.usuarioForm.value.password,
+            businessId: this.businessId
         };
 
         try {
-            const response = await this.authService.loginUser(user.email, user.password);
+            const response = await this.authService.loginUser(user.email, user.password, user.businessId);
             this.cdr.detectChanges();
             this.route.params.subscribe(params => {
             this.businessId = params['id'];})
@@ -63,5 +65,9 @@ export class LoginComponent {
             }, 1000);
             this.onLogin();
         }
+    }
+
+    toRegister() {
+        this.router.navigate(['register', this.businessId]);
     }
 }

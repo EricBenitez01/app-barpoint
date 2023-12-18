@@ -10,10 +10,11 @@ export class AuthService {
 
     constructor(private http: HttpClient) {}
 
-    async loginUser(email: string, password: string): Promise<any> {
+    async loginUser(email: string, password: string, businessId: number): Promise<any> {
         const requestData = {
             email: email, 
-            password: password
+            password: password,
+            businessId: businessId
         };
 
         const httpOptions = {

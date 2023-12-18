@@ -63,7 +63,8 @@ export interface User {
     address: string,
     gender: string,
     password: string,
-    rolfk: number
+    rolfk: number,
+    businessId: number,
 }
 
 export interface UsersResponse {
