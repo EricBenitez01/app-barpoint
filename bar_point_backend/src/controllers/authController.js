@@ -27,20 +27,23 @@ module.exports = {
             }
             
             //si una relacion entre un negocio no existe, la crea, sino, no hace nada
-            let userPointsExist = db.User_points.findAll({
-                where: {
-                    userfk: user.id,
-                    businessfk: businessId
+            if (businessId !== undefined) {
+                let userPointsExist = await db.User_points.findAll({
+                    where: {
+                        userfk: user.id,
+                        businessfk: businessId
+                    }
+                });            
+            
+                if (userPointsExist.length === 0) {
+                    await db.User_points.create({
+                        userfk: newUser.id,
+                        businessfk: businessId,
+                        quantity: 0,
+                    });
                 }
-            });            
-
-            if(!userPointsExist) {
-                await db.User_points.create({
-                    userfk: newUser.id,
-                    businessfk : businessId,
-                    quantity: 0,
-                });
-            }
+            }            
+            
             // Se genera un token para el user
             const token = jwt.sign({ userId: user.id, rol: user.rolfk }, process.env.SECRET_TOKEN);
 
