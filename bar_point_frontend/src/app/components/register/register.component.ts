@@ -17,7 +17,7 @@ export class RegisterComponent {
         address: "",
         gender: "",
         password: "",
-        rolFK: 1
+        rolfk: 1
     };
     genderList: string[] = [];
     clicking: boolean = false;

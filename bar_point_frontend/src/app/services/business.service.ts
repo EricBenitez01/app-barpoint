@@ -8,7 +8,7 @@ import { UsersResponse } from './users.service';
 	providedIn: 'root'
 })
 export class BusinessService {
-	private baseUrl = 'https://barpoint-6cc8.onrender.com/api';
+	private baseUrl = 'http://localhost:3001/api';
 
 	constructor(
 		private http: HttpClient, 
@@ -30,7 +30,7 @@ export class BusinessService {
 		return this.http.post<BusinessResponse>(`${this.baseUrl}/businesses/create`, data, httpOptions);
 	}
 
-	searchUserByBusinessname(data: String): Observable<Business[]> {
+	searchUserBybusinessname(data: String): Observable<Business[]> {
 		const httpOptions = {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json',
@@ -62,11 +62,11 @@ export interface Business {
 	lastname: string,
 	cuit: number,
 	phone: number,
-	businessName: string,
+	businessname: string,
 	email: string,
 	adress: string,
 	password: string,
-	rolFK: number
+	rolfk: number
 }
 
 export interface BusinessResponse {

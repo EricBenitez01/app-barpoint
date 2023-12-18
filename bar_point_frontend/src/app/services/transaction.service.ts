@@ -9,7 +9,7 @@ import { UsersResponse } from './users.service';
 })
 
 export class TransactionService {
-	private baseUrl = 'https://barpoint-6cc8.onrender.com/api';
+	private baseUrl = 'http://localhost:3001/api';
 
 	constructor(
 		private http: HttpClient, 
@@ -31,7 +31,7 @@ export class TransactionService {
 
 export interface Transaction {
     id: number,
-    userFK: number,
+    userfk: number,
     businessFK: number,
     transaction_typeFK: number
 }

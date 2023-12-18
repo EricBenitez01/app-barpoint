@@ -65,10 +65,10 @@
             </div>
             <div class="flex md:px-5 lg:px-8">
                 <div class="mb-3 w-7">
-                    <input id="businessName" type="text" formControlName="businessName"
+                    <input id="businessname" type="text" formControlName="businessname"
                         class="p-inputtext w-full py-3 px-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
                         placeholder="Nombre del Negocio" />
-                    <div *ngIf="businessForm.get('businessName')?.hasError('required') && businessForm.get('businessName')?.touched"
+                    <div *ngIf="businessForm.get('businessname')?.hasError('required') && businessForm.get('businessname')?.touched"
                         class="pt-2 error-validation">
                         Nombre de negocio es requerido.
                     </div>

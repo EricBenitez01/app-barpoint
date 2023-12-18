@@ -16,7 +16,7 @@ module.exports = {
             let businesses = await db.Business.findAll({
                 order: [order],
                 attributes: {
-                    exclude: ['password', 'create_time', 'rolFK']
+                    exclude: ['password', 'create_time', 'rolfk']
                 }
             })
             if (businesses.length) {
@@ -49,7 +49,7 @@ module.exports = {
 
             let business = await db.Business.findByPk(id, {
                 attributes: {
-                    exclude: ['password', 'create_time', 'rolFK'],
+                    exclude: ['password', 'create_time', 'rolfk'],
                 }
             });
 
@@ -72,7 +72,7 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { name, email, password, lastname, cuit, adress, phone, businessName, rolFK, menu } = req.body
+        const { name, email, password, lastname, cuit, adress, phone, businessname, rolfk, menu } = req.body
 
         try {
 
@@ -96,10 +96,10 @@ module.exports = {
                     cuit: cuit,
                     adress: adress,
                     phone: phone,
-                    businessName: businessName,
+                    businessname: businessname,
                     email: email,
                     password: hashedPassword,
-                    rolFK: 2,
+                    rolfk: 2,
                     menu: req.file?.filename,
                 }
             )

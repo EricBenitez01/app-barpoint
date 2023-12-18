@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        userFK: {
+        userfk: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
@@ -33,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
     User_points.associate = function (models) {
         User_points.belongsTo(models.User, {
             as: "user",
-            foreignKey: "userFK"
+            foreignKey: "userfk"
         })
     };
 

@@ -25,7 +25,7 @@ module.exports = {
                 }
             });
 
-            const userIds = businessUsers.map(user => user.userFK);
+            const userIds = businessUsers.map(user => user.userfk);
             
             const users = await db.User.findAll({
                 where: {

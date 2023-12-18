@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(500),
             allowNull: false
         },
-        businessName: {
+        businessname: {
             type: dataTypes.STRING(500),
             allowNull: false
         },
@@ -39,7 +39,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(500),
             allowNull: false
         },
-        rolFK: {
+        rolfk: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
@@ -88,7 +88,7 @@ module.exports = (sequelize, dataTypes) => {
     Business.associate = function (models) {
         Business.belongsTo(models.Rol, {
             as: "rol",
-            foreignKey: "rolFK"
+            foreignKey: "rolfk"
         })
     };
 

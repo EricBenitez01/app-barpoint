@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
     private tokenKey: string = 'auth_bigbangdevs';
-    private apiUrl: string = 'https://barpoint-6cc8.onrender.com/api';
+    private apiUrl: string = 'http://localhost:3001/api';
 
     constructor(private http: HttpClient) {}
 

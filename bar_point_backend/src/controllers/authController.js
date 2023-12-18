@@ -29,7 +29,7 @@ module.exports = {
             }
 
             // Se genera un token para el user
-            const token = jwt.sign({ userId: user.id, rol: user.rolFK }, process.env.SECRET_TOKEN);
+            const token = jwt.sign({ userId: user.id, rol: user.rolfk }, process.env.SECRET_TOKEN);
 
             return res.status(200).json({
                 ok: true,

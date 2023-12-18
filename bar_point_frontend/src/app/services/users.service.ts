@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 
 export class UsersService {
 
-    private baseUrl = 'https://barpoint-6cc8.onrender.com/api';
+    private baseUrl = 'http://localhost:3001/api';
 
     constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -63,7 +63,7 @@ export interface User {
     address: string,
     gender: string,
     password: string,
-    rolFK: number
+    rolfk: number
 }
 
 export interface UsersResponse {
