@@ -37,7 +37,7 @@ module.exports = {
             
                 if (userPointsExist.length === 0) {
                     await db.User_points.create({
-                        userfk: newUser.id,
+                        userfk: user.id,
                         businessfk: businessId,
                         quantity: 0,
                     });
