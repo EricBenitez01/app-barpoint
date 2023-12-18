@@ -97,7 +97,7 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { username, email, address, gender, birthday, password, rolFK, businessId } = req.body;
+        const { username, email, address, gender, birthday, password, rolfk, businessId } = req.body;
 
         try {
 
@@ -122,7 +122,7 @@ module.exports = {
                     gender: gender,
                     birthday: birthday,
                     password: hashedPassword,
-                    rolfk: rolFK,
+                    rolfk: rolfk,
                 }
             )
 
