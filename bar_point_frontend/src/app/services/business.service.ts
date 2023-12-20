@@ -11,13 +11,13 @@ export class BusinessService {
 	private baseUrl = 'https://barpoint-6cc8.onrender.com/api';
 
 	constructor(
-		private http: HttpClient, 
+		private http: HttpClient,
 		private authService: AuthService
 	) { }
 
 	getAllBusinesses(): Observable<BusinessResponse> {
 		return this.http.get<BusinessResponse>(`${this.baseUrl}/businesses`);
-	} 
+	}
 
 	createBusinesses(data: Business): Observable<BusinessResponse> {
 		const httpOptions = {
@@ -26,7 +26,7 @@ export class BusinessService {
 			})
 		};
 		console.log(data);
-		
+
 		return this.http.post<BusinessResponse>(`${this.baseUrl}/businesses/create`, data, httpOptions);
 	}
 
@@ -40,15 +40,26 @@ export class BusinessService {
 	}
 
 	getBusinessUsers(businessId: number): Observable<any> {
-    const httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            // Puedes agregar otras cabeceras personalizadas si es necesario
-        })
-    };
+		const httpOptions = {
+			headers: new HttpHeaders({
+				'Content-Type': 'application/json',
+				// Puedes agregar otras cabeceras personalizadas si es necesario
+			})
+		};
 
-    return this.http.get<any>(`${this.baseUrl}/users/${businessId}`, httpOptions);
-}
+		return this.http.get<any>(`${this.baseUrl}/users/${businessId}`, httpOptions);
+	}
+
+	getDashboardStatus(businessId: number): Observable<dashboardStatus> {
+		const httpOptions = {
+			headers: new HttpHeaders({
+				'Content-Type': 'application/json',
+				// Puedes agregar otras cabeceras personalizadas si es necesario
+			})
+		};
+
+		return this.http.get<dashboardStatus>(`${this.baseUrl}/dashboard/${businessId}`, httpOptions);
+	}
 
 }
 
@@ -73,4 +84,11 @@ export interface BusinessResponse {
 	ok: boolean;
 	meta: any; // Tipo de los metadatos, puedes ajustarlo si conoces la estructura exacta
 	data: Business[]; // Tipo de los datos, puedes ajustarlo si conoces la estructura exacta
+}
+
+export interface dashboardStatus {
+	users: number;
+	userPointsLastMonth: number;
+	userPointsLastWeek: number;
+	benefitCreated: number;
 }

@@ -7,6 +7,7 @@ const benefitsRoutes = require('./routes/benefitsRoutes');
 const purchaseRoutes = require('./routes/purchaseRoutes');
 const transaction = require('./routes/transactionRoute');
 const business = require('./routes/businessesRoutes');
+const dashboard = require('./routes/dashboardRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -33,6 +34,7 @@ app.use('/api/', benefitsRoutes, cors(corsOptions));
 app.use('/api/', purchaseRoutes, cors(corsOptions));
 app.use('/api/', transaction, cors(corsOptions));
 app.use('/api/', business, cors(corsOptions));
+app.use('/api/', dashboard, cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
 
