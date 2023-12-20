@@ -2,9 +2,7 @@ const db = require('../database/models');
 const bcrypt = require('bcrypt');
 const path = require("path");
 const fs = require('fs').promises;
-const {
-    Op
-} = require('sequelize');
+const {Op, sequelize } = require('sequelize');
 
 module.exports = {
 
