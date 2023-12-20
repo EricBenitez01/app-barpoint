@@ -2,10 +2,12 @@ const db = require('../database/models');
 const bcrypt = require('bcrypt');
 const path = require("path");
 const fs = require('fs').promises;
-const {Op, sequelize } = require('sequelize');
+const {
+    Op,
+    sequelize
+} = require('sequelize');
 
 module.exports = {
-
     status: async (req, res) => {
         try {
             let businessId = req.params.id;
@@ -23,15 +25,6 @@ module.exports = {
             const userCount = await db.User_points.count({
                 where: {
                     businessfk: businessId,
-                },
-            });
-
-            const userPointsSum = await db.User_points.sum('quantity', {
-                where: {
-                    businessfk: businessId,
-                    create_time: {
-                        [Op.gte]: sequelize.fn('to_timestamp', timestampValue),
-                    },
                 },
             });
 
@@ -72,6 +65,5 @@ module.exports = {
             });
         }
     }
-
 
 }
