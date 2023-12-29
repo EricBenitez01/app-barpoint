@@ -61,7 +61,7 @@ export class NavBarComponent {
                         label: 'Menú',
                         icon: 'pi pi-map',
                         command: () => {
-                            this.update();
+                            this.redirectMenu();
                         }
                     },
                     {
@@ -77,13 +77,6 @@ export class NavBarComponent {
         ];
     }
 
-    update() {
-        alert('El boton funciona');
-    }
-
-    delete() {
-        alert('El boton funciona');
-    }
 
     redirectMenu() {
         this.router.navigate(['menu-viewer', this.businessId]);  

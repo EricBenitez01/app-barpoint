@@ -53,7 +53,6 @@ export class LoginComponent {
                 this.authService.setToken(response.token);
                 // Se redirige a la ruta Home
                 this.router.navigate(['home', this.businessId]);
-                alert('a casa')
             }
             
         } catch (error) {

@@ -74,11 +74,4 @@ export class HamburgerMenuComponent {
         ];
     }
 
-    update() {
-        alert('El boton funciona');
-    }
-
-    delete() {
-        alert('El boton funciona');
-    }
 }
