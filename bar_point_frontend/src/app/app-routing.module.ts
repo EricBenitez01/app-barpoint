@@ -16,7 +16,7 @@ import { RolesEnum } from './services/auth.service';
 const routes: Routes = [
     { path: '', redirectTo: '/login/3', pathMatch: 'full' },
     { path: 'login/:id', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'register/:id', component: RegisterComponent },
     { path: 'home/:id', component: HomeComponent },
     { path: 'users', component: UserComponent },
     { path: 'profile-user/:id', component: ProfileUserComponent },
