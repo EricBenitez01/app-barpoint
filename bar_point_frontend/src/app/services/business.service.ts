@@ -30,7 +30,23 @@ export class BusinessService {
 		return this.http.post<BusinessResponse>(`${this.baseUrl}/businesses/create`, data, httpOptions);
 	}
 
-	searchUserBybusinessname(data: String): Observable<Business[]> {
+	editBusinesses(businessId: number, menu:any): Observable<Business> {
+		const formData = new FormData();
+		formData.append('menu', menu);
+        return this.http.put<Business>(`${this.baseUrl}/businesses/${businessId}`, formData);
+    }
+
+	getBusiness(businessId: number): Observable<BusinessResponse> {
+        const httpOptions = {
+            headers: new HttpHeaders ({
+                'Content-Type': 'application/json',
+
+            })
+        };
+        return this.http.get<BusinessResponse>(`${this.baseUrl}/businesses/${businessId}`, httpOptions)
+    }
+
+	searchUserByBusinessname(data: String): Observable<Business[]> {
 		const httpOptions = {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json',
@@ -57,10 +73,9 @@ export class BusinessService {
 				// Puedes agregar otras cabeceras personalizadas si es necesario
 			})
 		};
-
+	
 		return this.http.get<dashboardStatus>(`${this.baseUrl}/dashboard/${businessId}`, httpOptions);
 	}
-
 }
 
 export interface BusinessUsers {
@@ -73,11 +88,12 @@ export interface Business {
 	lastname: string,
 	cuit: number,
 	phone: number,
-	businessname: string,
+	businessName: string,
 	email: string,
 	adress: string,
 	password: string,
-	rolfk: number
+	rolFK: number,
+	menu?: any;
 }
 
 export interface BusinessResponse {

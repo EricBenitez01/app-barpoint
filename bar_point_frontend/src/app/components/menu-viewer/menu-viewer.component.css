@@ -1,0 +1,24 @@
+.main-menu-viewer-container {
+    background-color: rgba(255, 255, 255, 0.53);
+}
+h2 {
+    font-family: 'MADE Soulmaze', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 23px;
+}
+.title-container {
+    background-color: #5C4092;
+}
+::ng-deep .p-button {
+    color: white;
+    background: #E61F85 !important;
+    border-radius: 0.25rem;
+    border-width: 0px !important;
+}
+
+@media(min-width: 768px) {
+    .main-menu-viewer-container {
+        background: linear-gradient(0deg, rgba(234,84,147,1) 0%, rgba(92,64,146,1) 100%);
+    }
+}

@@ -22,8 +22,8 @@ module.exports = {
             // Crear la transacción
             const transaction = await db.Transaction.create({
                 userfk: user.id,
-                businessfk : businessId,
-                transaction_typeFK: transactionTypeId,
+                businessfk: businessId,
+                transaction_typefk: transactionTypeId,
             });
 
             // Actualizar user_points según el tipo de transacción
@@ -32,7 +32,7 @@ module.exports = {
                 const userPoint = await db.User_points.findOne({
                     where: {
                         userfk: user.id,
-                        businessfk : businessId,
+                        businessfk: businessId,
                     },
                 });
 
@@ -44,7 +44,7 @@ module.exports = {
                     // Si no hay un registro previo, crear uno nuevo.
                     await db.User_points.create({
                         userfk: user.id,
-                        businessfk : businessId,
+                        businessfk: businessId,
                         quantity: transactionValue,
                     });
                 }
@@ -52,7 +52,7 @@ module.exports = {
                 // Encuentra todos los beneficios relacionados con el businessId
                 const allBenefits = await db.Benefit.findAll({
                     where: {
-                        businessfk : businessId, // Filtrar por businessId
+                        businessfk: businessId, // Filtrar por businessId
                     },
                     attributes: ['id', 'points_req'],
                 });
@@ -70,7 +70,7 @@ module.exports = {
                 const userPoint = await db.User_points.findOne({
                     where: {
                         userfk: user.id,
-                        businessfk : businessId,
+                        businessfk: businessId,
                     },
                 });
 
@@ -119,7 +119,7 @@ module.exports = {
                         attributes: ['id'], // Asegúrate de tener el nombre del tipo de transacción en tu modelo
                     },
                 ],
-                attributes: ['id', 'userfk', 'businessfk ', 'transaction_typeFK'],
+                attributes: ['id', 'userfk', 'businessfk', 'transaction_typefk'],
             });
 
             const transactionsWithDetails = transactions.map((transaction) => {
@@ -170,7 +170,7 @@ module.exports = {
                         attributes: ['id'], // Asegúrate de tener el nombre del tipo de transacción en tu modelo
                     },
                 ],
-                attributes: ['id', 'userfk', 'businessfk ', 'transaction_typeFK'],
+                attributes: ['id', 'userfk', 'businessfk', 'transaction_typefk'],
             });
 
             if (!transaction) {

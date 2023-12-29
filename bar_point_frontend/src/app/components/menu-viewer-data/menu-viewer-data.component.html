@@ -1,0 +1,14 @@
+<div class="flex justify-content-center py-3">
+    <p-button icon="pi pi-search-minus" (click)="zoomOut()">
+    </p-button>
+    <p-button class="mx-3" icon="pi pi-search-plus" (click)="zoomIn()">
+    </p-button>
+    <p-button icon="pi pi-refresh" (click)="resetZoom()">
+    </p-button>
+</div>
+<pdf-viewer [src]="getPdfUrl(menu)" 
+            [render-text]="true" 
+            [original-size]="false" 
+            style="height: 100vh"
+            [zoom]="pdfZoom">
+</pdf-viewer>

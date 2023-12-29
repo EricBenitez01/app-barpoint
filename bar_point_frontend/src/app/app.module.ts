@@ -53,8 +53,13 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
 
 
 import { FileUploadModule } from 'primeng/fileupload';
+import { MenuViewerComponent } from './components/menu-viewer/menu-viewer.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BenefitPopupEditComponent } from './components/benefit-popup-edit/benefit-popup-edit.component';
 import { BenefitPopupDeleteComponent } from './components/benefit-popup-delete/benefit-popup-delete.component';
+import { MenuPopupComponent } from './components/menu-popup/menu-popup.component';
+import { UserProfileDataComponent } from './components/user-profile-data/user-profile-data.component';
+import { MenuViewerDataComponent } from './components/menu-viewer-data/menu-viewer-data.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +92,12 @@ import { BenefitPopupDeleteComponent } from './components/benefit-popup-delete/b
     HamburgerMenuComponent,
     BenefitPopupEditComponent,
     BenefitPopupDeleteComponent,
+    MenuViewerComponent,
+    BenefitPopupEditComponent,
+    BenefitPopupDeleteComponent,
+    MenuPopupComponent,
+    UserProfileDataComponent,
+    MenuViewerDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +121,7 @@ import { BenefitPopupDeleteComponent } from './components/benefit-popup-delete/b
     DialogModule,
     PanelModule,
     AutoCompleteModule,
+    PdfViewerModule,
     FileUploadModule
   ],
   providers: [

@@ -35,6 +35,7 @@
                 <div class="mb-3 w-6 md:w-5">
                     <p-dropdown id="genderSelect" [options]="genderList" formControlName="gender" placeholder="Género"
                         [style]="{'padding': '0.1rem 0 0.2rem 0.2rem'}">
+
                         <option *ngFor="let option of genderList" [value]="option">{{ option }}</option>
                     </p-dropdown>
                     <div *ngIf="clienteForm.get('gender')?.hasError('required') && clienteForm.get('gender')?.touched"

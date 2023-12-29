@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        businessfk : {
+        businessfk: {
             type: dataTypes.INTEGER,
             allowNull: false
         }
@@ -25,7 +25,10 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName: "user_points",
-        timestamps: false
+        timestamps: true,
+        createdAt: 'create_time',
+        updatedAt: false,
+        deletedAt: false
     }
 
     const User_points = sequelize.define(alias, cols, config);

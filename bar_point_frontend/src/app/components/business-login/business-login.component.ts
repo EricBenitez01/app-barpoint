@@ -17,6 +17,8 @@ export class BusinessLoginComponent {
     businessLoginForm: FormGroup;
     clicking: boolean = false;
 
+    errorMessage: string = '';
+
     constructor(
         private authService: AuthService, 
         private cdr: ChangeDetectorRef, 
@@ -45,7 +47,7 @@ export class BusinessLoginComponent {
                 this.router.navigate(['business']);
             }
         } catch (error) {
-            // TO-DO: Mostrar info al usuario avisando que ingresó datos incorrectos
+            this.errorMessage = 'Datos incorrectos. Por favor, verifica tus credenciales.';
         }
 
     }

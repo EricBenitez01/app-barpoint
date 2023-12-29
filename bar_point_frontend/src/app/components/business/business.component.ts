@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class BusinessComponent implements OnInit {
     businessId!: number;
+    rol!: number;
 
     constructor( private authService: AuthService ) { } 
 
@@ -21,6 +22,9 @@ export class BusinessComponent implements OnInit {
             // Se recupera del payload el id del business
             if ('businessId' in tokenData) {
                 this.businessId = tokenData.businessId;
+            }
+            if ('rol' in tokenData) {
+                this.rol = tokenData.rol;
             }
         }
     }

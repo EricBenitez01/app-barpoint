@@ -13,6 +13,8 @@ export class BenefitSliderComponent {
     
     responsiveOptions: any[] = [];
     benefits: Benefit[] = [];
+
+    private baseUrl: string = 'https://barpoint-6cc8.onrender.com/api';
     
     constructor(private benefitsService: BenefitsService) { }
 
@@ -22,11 +24,20 @@ export class BenefitSliderComponent {
 
     getBusinessBenefits() {
         this.benefitsService.benefitsForaBusiness(this.businessId).subscribe((result) => {
-            this.responsiveOptions = result.data;
+            this.responsiveOptions = result.data.slice(0, 5);
             this.benefits = this.responsiveOptions;
         })
         console.log("Esta es la data " + this.responsiveOptions);
         
+    };
+
+    getImagenUrl(imagenNombre: string): string {
+        if (imagenNombre) {
+            return `${this.baseUrl}/images/${imagenNombre}`;
+        }
+        else {
+            return "../../../assets/defaultImage.png";
+        }
     };
     
 }

@@ -1,0 +1,68 @@
+<div class="center-container">
+    <div class="my-4 py-1 px-4 text-center bg-gray-300 border-round-xl shadow-4 lg:mt-5 lg:mb-6">
+        <h3 class="text-black my-0">USUARIO</h3>
+    </div>
+    <div class="subtitle-container">
+        <h4 class="my-4 lg:mb-6">Datos de Registro</h4>
+    </div>
+    <form class="w-full lg:flex lg:mb-8">
+        <div class="form-part-container lg:w-6">
+            <div class="mb-4">
+                <label class="block text-black mb-2" for="nombreApellido">
+                    Nombre y Apellido
+                </label>
+                <input id="nombreApellido" type="text" name="nombreApellido"
+                    class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
+                    required
+                    [value]="userDetail.username" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-black mb-2" for="email">
+                    Correo Electrónico
+                </label>
+                <input id="email" type="email" name="email"
+                    class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
+                    required
+                    [value]="userDetail.email" />
+            </div>
+        </div>
+        <div class="form-part-container lg:w-6">
+            <div class="flex justify-content-between">
+                <div class="mb-4 mr-3 w-6 lg:w-7">
+                    <label class="block text-black mb-2" for="fechaNacimiento">
+                        Fecha de Nac.
+                    </label>
+                    <input id="fechaNacimiento" type="text" name="fechaNacimiento"
+                        class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
+                        required
+                        [value]="birthday" />
+                </div>
+                <div class="mb-4 w-6 lg:w-5">
+                    <label class="block text-black mb-2" for="genero">
+                        Género
+                    </label>
+                    <input id="genero" type="text" name="genero"
+                        class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
+                        required
+                        [value]="userDetail.gender" />
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-black mb-2" for="localidadDireccion">
+                    Localidad de Residencia
+                </label>
+                <input id="localidadDireccion" type="text" name="localidadDireccion"
+                    class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
+                    required
+                    [value]="userDetail.address" />
+            </div>
+        </div>
+    </form>
+    <!-- Este boton servira para POSTEAR en un futuro -->
+    <!-- <div class="button-container mt-6 mb-4">
+        <button type="submit"
+            class="text-white py-3 px-5 border-solid border-round-3xl bg-pink-600 border-pink-600 cursor-pointer">
+            GUARDAR
+        </button>
+    </div> -->
+</div>

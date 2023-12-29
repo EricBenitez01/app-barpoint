@@ -1,0 +1,62 @@
+h3 {
+    font-family: 'MADE Soulmaze', sans-serif;
+}
+h4, label, button, .p-inputtext, input:-webkit-autofill {
+    font-family: 'Roboto', sans-serif;
+}
+h3 {
+    font-weight: 400;
+    font-size: 24px;
+}
+h4 {
+    font-weight: 700;
+    font-size: 20px;
+}
+label {
+    font-weight: 400;
+    font-size: 14px;
+}
+button {
+    font-weight: 700;
+    font-size: 16px;
+}
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subtitle-container {
+    align-self: flex-start;
+}
+.p-inputtext {
+    background: transparent !important;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px !important;
+    border-color: black !important;
+    border-radius: 0;
+    color: #343A40;
+}
+input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #495057;
+}
+
+@media(min-width: 992px) {
+    h3 {
+        font-size: 28px;
+    }
+    h4 {
+        font-size: 24px;
+    }
+    label {
+        font-size: 17px;
+    }
+    .button-container {
+        align-self: flex-end;
+    }
+    .form-part-container {
+        padding-right: 10%;
+    }
+}

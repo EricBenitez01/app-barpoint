@@ -28,3 +28,6 @@
     font-size: 15px;
     justify-content: flex-start !important;
 }
+::ng-deep .p-menu {
+    width: 13.5rem;
+}

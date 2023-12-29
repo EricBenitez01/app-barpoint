@@ -1,5 +1,5 @@
-<div class="flex items-center justify-center rounded-md w-5 h-8 border-2 border-gray-300 ml-1 hover:bg-pink-400 hover:border-white custom-icon-container">
-    <i class="pi pi-trash text-gray-700 cursor-pointer" (click)="showDialog()"></i>
+<div class="flex items-center justify-center rounded-md h-8 border-2 border-gray-300 ml-1 hover:bg-pink-400 hover:border-white custom-icon-container">
+    <i class="pi pi-trash px-2 text-gray-700 cursor-pointer" (click)="showDialog()"></i>
 </div>
 <p-dialog header="Eliminar Promoción" [(visible)]="visible" [style]="{ width: '40vw' }">
     <div class="flex py-2 justify-content-center">
@@ -10,11 +10,11 @@
             </div>
             <div class="flex flex-row gap-2 ml-20"> 
                 <!-- Botón de Cancelar -->
-                <button type="button" class="p-button bg-blue-500 text-white py-2 px-4 rounded" (click)="cancel()">
+                <button type="button" class="p-button bg-blue-500 font-semibold text-white py-2 px-4 rounded" (click)="cancel()">
                     Cancelar
                 </button>
                 <!-- Botón de Aceptar -->
-                <button type="button" class="p-button bg-blue-500 text-white py-2 px-4 rounded" (click)="deleteBenefit()">
+                <button type="button" class="p-button bg-blue-500 font-semibold text-white py-2 px-4 rounded" (click)="deleteBenefit()">
                     Eliminar
                 </button>
             </div>

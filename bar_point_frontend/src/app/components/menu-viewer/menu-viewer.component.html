@@ -1,0 +1,12 @@
+<div class="main-menu-viewer-container">
+    <app-nav-bar [businessId]="businessId"></app-nav-bar>
+    <div class="title-container flex w-full align-items-center md:hidden">
+        <a class="no-underline" (click)="redirectHome()">
+            <i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i>
+        </a>
+        <h2 class="text-white text-center w-11 md:pr-0 md:w-full lg:mb-0">MENÚ</h2>
+        <app-hamburger-menu class="md:hidden" [businessId]="businessId"></app-hamburger-menu>
+    </div>
+    <app-menu-viewer-data [businessId]="businessId"></app-menu-viewer-data>
+    <app-footer></app-footer>
+</div>

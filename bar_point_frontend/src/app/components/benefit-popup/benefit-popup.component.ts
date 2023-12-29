@@ -34,8 +34,8 @@ export class BenefitPopupComponent {
     }
 
     saveBenefit() {
-        if (this.title && this.description && this.discount && this.points) {
-            this.benefitService.create(this.businessId, this.title, this.description, this.discount, this.points, this.image)
+        if (this.title && this.description && this.points) {
+            this.benefitService.create(this.businessId, this.title, this.description, this.points, this.image)
             .subscribe(response => {
                 console.log(response);
             });

@@ -19,6 +19,10 @@ export class CustomersComponent implements OnInit {
         this.getCustomers();
     }
 
+    reloadCustomers() {
+        this.getCustomers();
+    }
+
     async getCustomers() {
         this.businessService.getBusinessUsers(this.businessId)
             .subscribe((result) => {

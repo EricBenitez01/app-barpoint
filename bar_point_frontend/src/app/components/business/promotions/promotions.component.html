@@ -1,4 +1,4 @@
-<div>
+<div class="table-container">
     <p-table 
         [value]="benefits"  
         dataKey="code" 
@@ -10,7 +10,7 @@
             <div class="flex align-items-center justify-content-between">
                 PROMOS
                 <div>
-                    <!-- <p-button class="mr-2" label="Agregar Promo"></p-button> --> 
+                    <!-- Create Benefit --> 
                     <app-benefit-popup [businessId]="businessId"></app-benefit-popup>
                     <p-button icon="pi pi-refresh" (onClick)="reloadBenefits()"></p-button>
                 </div>
@@ -26,16 +26,25 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-benefits>
-            <tr class="text-xl mx-10">
+            <tr class="text-xl mx-10 h-[8rem]">
                 <td>{{benefits.benefitname}}</td>
-                <td><img src="../../../assets/img/Rectangle 7.png" width="100" class="shadow-4" /></td>
+                <td>
+                    <img [src]="getImagenUrl(benefits.img)" class="w-20 shadow-4">
+                </td>
                 <td>{{benefits.description}}</td>
                 <td class="whitespace-nowrap"><span class="text-pink-600 font-normal">{{benefits.points_req}}</span> puntos</td>
                 <td>
                     <div class="flex">
-                        <div class="flex items-center justify-center rounded-md w-5 h-8 border-2 border-gray-300 hover:bg-pink-400 hover:border-white custom-icon-container">
-                            <i class="pi pi-pencil text-gray-700 cursor-pointer"></i>
-                        </div>
+                        <!-- Edit Benefit -->
+                        <app-benefit-popup-edit 
+                            [benefitId]="benefits.id"
+                            [title]="benefits.benefitname"
+                            [description]="benefits.description"
+                            [image]="benefits.img"
+                            [discount]="benefits.discount"
+                            [points]="benefits.points_req"
+                        ></app-benefit-popup-edit>
+                        <!-- Delete Benefit -->
                         <app-benefit-popup-delete [benefitId]="benefits.id"></app-benefit-popup-delete>
                     </div>
                 </td>

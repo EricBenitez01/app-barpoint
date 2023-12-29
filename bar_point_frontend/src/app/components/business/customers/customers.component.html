@@ -10,8 +10,8 @@
                 <div class="flex align-items-center justify-content-between">
                     CLIENTES
                     <div class="flex">
-                        <app-transaction-popup class="mr-2"></app-transaction-popup>
-                        <p-button icon="pi pi-refresh"></p-button>
+                        <app-transaction-popup class="mr-2" [businessId]="businessId"></app-transaction-popup>
+                        <p-button icon="pi pi-refresh" (onClick)="reloadCustomers()"></p-button>
                     </div>
                 </div>
             </ng-template>
@@ -27,7 +27,7 @@
                 <tr class="text-xl">
                     <td>{{customers.username}}</td>
                     <td>{{customers.email}}</td>
-                    <td>{{ customers.user_points[0]?.quantity || 0 }}</td>
+                    <td>{{ customers.user_points[customers.user_points.length -1]?.quantity || 0 }}</td>
                     <td><span class="text-pink-600 font-normal">{{customers.birthday | date: 'dd/MM/yyyy'}}</span></td>
                 </tr>
             </ng-template>

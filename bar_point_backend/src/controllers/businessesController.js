@@ -8,10 +8,10 @@ module.exports = {
 
         try {
             let { order = "id" } = req.query;
-            let orders = ["id", "username", "email"];
+            let orders = ["id", "name", "email"];
 
             if (!orders.includes(order)) {
-                throw new Error(`The ${order} field does not exist. Allowed fields : [username, email]`);
+                throw new Error(`The ${order} field does not exist. Allowed fields : [name, email]`);
             }
             let businesses = await db.Business.findAll({
                 order: [order],
@@ -72,7 +72,7 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { name, email, password, lastname, cuit, adress, phone, businessname, rolfk, menu } = req.body
+        const { name, email, password, lastname, cuit, adress, phone, businessName, rolfk, menu } = req.body
 
         try {
 
@@ -96,7 +96,7 @@ module.exports = {
                     cuit: cuit,
                     adress: adress,
                     phone: phone,
-                    businessname: businessname,
+                    businessname: businessName,
                     email: email,
                     password: hashedPassword,
                     rolfk: 2,
@@ -139,8 +139,8 @@ module.exports = {
             // Almacena la ruta del archivo anterior antes de la actualización
             const previousMenuPath = updateBusiness.menu;
 
-            updateBusiness.username = username?.trim();
-            updateBusiness.email = email?.trim();
+            updateBusiness.name = username?.trim()  || updateBusiness.name; 
+            updateBusiness.email = email?.trim() || updateBusiness.email;
             updateBusiness.password = hashedPassword || updateBusiness.password;
             updateBusiness.menu = req.file?.filename || updateBusiness.menu;
 
@@ -199,7 +199,7 @@ module.exports = {
     },
     menu: (req, res) => {
         res.sendFile(
-            path.join(__dirname, `../../public/pdfs/BusinessesPdf/${req.params.pdf}.pdf`)
+            path.join(__dirname, `../../public/pdfs/BusinessesPdf/${req.params.pdf}`)
         )
     }
 }

@@ -1,10 +1,11 @@
 <div>
-    <p class="helloUser md: flex justify-center">¡Hola Roberto!</p>
+    <p class="helloUser md: flex justify-center">¡Hola {{username}}!</p>
+    <p class="helloUser md: flex justify-center mt-1">Bienvenido a <span class="font-bold ml-1">Barpoint!</span></p>
     <div class="backgroundUserPoints rounded-md">
         <div class="background-overlay rounded-md"></div>
         <div class="center-contents">
-            <p class="points">2000</p>
-            <p class="text">barpoints</p>
+            <p class="points">{{userPoints ? userPoints : 0}}</p>
+            <p class="text">Barpoints</p>
         </div>
     </div>
 </div>

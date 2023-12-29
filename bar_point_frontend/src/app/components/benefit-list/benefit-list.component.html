@@ -3,7 +3,7 @@
     <div *ngFor="let benefit of benefits">
         <div class="cardContainer">
             <div class="image-container">
-                <img src="../../../assets/img/Rectangle5.png" class="cover-image" alt="">
+                <img [src]="getImagenUrl(benefit.img)" class="cover-image" alt="">
             </div>
             <div class="columCard">
                 <div class="cardText">

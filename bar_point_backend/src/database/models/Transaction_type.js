@@ -43,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
     Transaction_type.associate = function (models) {
         Transaction_type.hasMany(models.Transaction, {
             as: "transactions",
-            foreignKey: "transaction_typeFK"
+            foreignKey: "transaction_typefk"
         })
     };
 

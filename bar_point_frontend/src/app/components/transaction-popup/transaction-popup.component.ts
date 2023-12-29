@@ -13,7 +13,7 @@ import { User, UsersService } from 'src/app/services/users.service';
 })
 export class TransactionPopupComponent {
     @Input()
-    businessId: number = 1;
+    businessId!: number;
     selectedClient!: any;
     selectedTransactionType: string = 'canje';
     selectedPromotion!: any;
@@ -69,7 +69,9 @@ export class TransactionPopupComponent {
             console.log(this.selectedTransactionType);
             
         }
-        this.transactionService.transaction(this.data)
+        this.transactionService.transaction(this.data).subscribe(
+            e => {console.log(e);
+        });
         this.visible = false;
         alert("La transaccion se realizo correctamente");
     }

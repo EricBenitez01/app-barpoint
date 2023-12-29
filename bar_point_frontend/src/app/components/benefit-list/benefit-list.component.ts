@@ -11,6 +11,8 @@ export class BenefitListComponent {
     businessId!: number;
     
     benefits: Benefit[] = [];
+
+    private baseUrl: string = 'https://barpoint-6cc8.onrender.com/api';
     
     constructor(private benefitsService: BenefitsService) { }
 
@@ -22,6 +24,15 @@ export class BenefitListComponent {
         this.benefitsService.benefitsForaBusiness(this.businessId).subscribe((result) => {
             this.benefits = result.data;
         })
+    };
+
+    getImagenUrl(imagenNombre: string): string {
+        if (imagenNombre) {
+            return `${this.baseUrl}/images/${imagenNombre}`;
+        }
+        else {
+            return "../../../assets/defaultImage.png";
+        }
     };
        
 }

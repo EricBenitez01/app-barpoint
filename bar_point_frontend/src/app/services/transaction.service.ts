@@ -23,7 +23,7 @@ export class TransactionService {
                 // Puedes agregar otras cabeceras personalizadas si es necesario
             })
         };
-    
+
         return this.http.post<transactionResponse>(`${this.baseUrl}/transaction`, data, httpOptions);
     }
 
@@ -31,7 +31,7 @@ export class TransactionService {
 
 export interface Transaction {
     id: number,
-    userfk: number,
+    userFK: number,
     businessFK: number,
     transaction_typeFK: number
 }

@@ -18,6 +18,7 @@ export class LoginComponent {
     usuarioForm: FormGroup;
     clicking: boolean = false;
     businessId!: number;
+    errorMessage!: string;
 
     constructor(
         private authService: AuthService, 
@@ -52,10 +53,11 @@ export class LoginComponent {
                 this.authService.setToken(response.token);
                 // Se redirige a la ruta Home
                 this.router.navigate(['home', this.businessId]);
+                alert('a casa')
             }
             
         } catch (error) {
-            // TO-DO: Mostrar info al usuario avisando que ingresó datos incorrectos
+            this.errorMessage = 'Datos incorrectos. Por favor, verifica tus credenciales.';
         }
 
     }

@@ -17,7 +17,7 @@ module.exports = {
             
             const businessUsers = await db.User_points.findAll({
                 where: {
-                    businessfk : businessId,
+                    businessfk: businessId,
                 },
                 order: [order],
                 attributes: {
@@ -33,7 +33,7 @@ module.exports = {
                 },
                 include: [{
                     model: db.User_points,
-                    as: 'user_points', // Alias de la asociación
+                    as: 'user_points',
                     attributes: ['quantity']
                 }],
                 order: [order],
@@ -63,7 +63,6 @@ module.exports = {
     },
     detail: async (req, res) => {
         try {
-
             let id = req.params.id;
 
             if (isNaN(id)) {
@@ -73,7 +72,12 @@ module.exports = {
             let user = await db.User.findByPk(id, {
                 attributes: {
                     exclude: ['password'],
-                }
+                }, 
+                include: [{
+                    model: db.User_points,
+                    as: 'user_points',
+                    attributes: ['quantity', 'businessfk']
+                }]
             });
 
             if (user) {
@@ -97,7 +101,7 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { username, email, address, gender, birthday, password, rolfk, businessId } = req.body;
+        const { username, email, address, gender, birthday, password, rolFK, businessId } = req.body;
 
         try {
 
@@ -122,7 +126,7 @@ module.exports = {
                     gender: gender,
                     birthday: birthday,
                     password: hashedPassword,
-                    rolfk: rolfk,
+                    rolfk: rolFK,
                 }
             )
 

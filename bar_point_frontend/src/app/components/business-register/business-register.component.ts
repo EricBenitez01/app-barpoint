@@ -16,10 +16,10 @@ export class BusinessRegisterComponent {
         cuit: 0,
         adress: "",
         phone: 0,
-        businessname: "",
+        businessName: "",
         email: "",
         password: "",
-        rolfk: 2
+        rolFK: 3
     };
     clicking: boolean = false;
 
@@ -35,10 +35,10 @@ export class BusinessRegisterComponent {
             cuit: ['', [Validators.required]],
             adress: ['', [Validators.required]],
             phone: ['', [Validators.required]],
-            businessname: ['', [Validators.required]],
+            businessName: ['', [Validators.required]],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]],
-            rolfk: 2
+            rolFK: 3
         });
     }
 

@@ -1,79 +1,12 @@
 <div class="main-profile-container">
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [businessId]="businessId"></app-nav-bar>
     <div class="profile-container md:px-8 md:mx-6 md:my-4 md:border-round-md md:shadow-4 lg:px-0">
         <div class="title-container flex w-full align-items-center md:hidden">
-            <a class="no-underline" href="/home"><i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i></a>
+            <a class="no-underline" (click)="redirectHome()"><i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i></a>
             <h2 class="text-white text-center w-11 md:pr-0 md:w-full lg:mb-0">MIS DATOS</h2>
-            <app-hamburger-menu class="md:hidden"></app-hamburger-menu>
+            <app-hamburger-menu class="md:hidden" [businessId]="businessId"></app-hamburger-menu>
         </div>
-        <div class="center-container">
-            <div class="my-4 py-1 px-4 text-center bg-gray-300 border-round-xl shadow-4 lg:mt-5 lg:mb-6">
-                <h3 class="text-black my-0">USUARIO</h3>
-            </div>
-            <div class="subtitle-container">
-                <h4 class="my-4 lg:mb-6">Datos de Registro</h4>
-            </div>
-            <form class="w-full lg:flex lg:mb-8">
-                <div class="form-part-container lg:w-6">
-                    <div class="mb-4">
-                        <label class="block text-black mb-2" for="nombreApellido">
-                            Nombre y Apellido
-                        </label>
-                        <input id="nombreApellido" type="text" name="nombreApellido"
-                            class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
-                            required
-                            [value]="userDetail.username" />
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-black mb-2" for="email">
-                            Correo Electrónico
-                        </label>
-                        <input id="email" type="email" name="email"
-                            class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
-                            required
-                            [value]="userDetail.email" />
-                    </div>
-                </div>
-                <div class="form-part-container lg:w-6">
-                    <div class="flex justify-content-between">
-                        <div class="mb-4 mr-3 w-6 lg:w-7">
-                            <label class="block text-black mb-2" for="fechaNacimiento">
-                                Fecha de Nac.
-                            </label>
-                            <input id="fechaNacimiento" type="text" name="fechaNacimiento"
-                                class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
-                                required
-                                [value]="userDetail.birthday" />
-                        </div>
-                        <div class="mb-4 w-6 lg:w-5">
-                            <label class="block text-black mb-2" for="genero">
-                                Género
-                            </label>
-                            <input id="genero" type="text" name="genero"
-                                class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
-                                required
-                                [value]="userDetail.gender" />
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-black mb-2" for="localidadDireccion">
-                            Localidad de Residencia
-                        </label>
-                        <input id="localidadDireccion" type="text" name="localidadDireccion"
-                            class="p-inputtext w-full py-1 px-3 rounded border border-gray-300 focus:outline-none focus:border-transparent"
-                            required
-                            [value]="userDetail.address" />
-                    </div>
-                </div>
-            </form>
-            <!-- Este boton servira para POSTEAR en un futuro -->
-            <!-- <div class="button-container mt-6 mb-4">
-                <button type="submit"
-                    class="text-white py-3 px-5 border-solid border-round-3xl bg-pink-600 border-pink-600 cursor-pointer">
-                    GUARDAR
-                </button>
-            </div> -->
-        </div>
+        <app-user-profile-data [userId]="userId" [businessId]="businessId" style="width: 80%;"></app-user-profile-data>
     </div>
     <app-footer></app-footer>
 </div>

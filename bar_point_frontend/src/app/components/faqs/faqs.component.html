@@ -1,10 +1,10 @@
 <div class="main-faqs-container">
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [businessId]="businessId"></app-nav-bar>
     <div class="faqs-container md:px-8 md:mx-6 md:mt-4 md:border-round-md">
         <div class="title-container flex w-full align-items-center">
-            <a class="no-underline" href="/home"><i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i></a>
+            <span (click)="redirectHome()"><i class="md:hidden fa-solid fa-arrow-left text-white text-center w-1 mx-2"></i></span>
             <h2 class="text-white text-center w-11 md:pr-0 md:w-full lg:mb-0">PREGUNTAS FRECUENTES</h2>
-            <app-hamburger-menu class="md:hidden"></app-hamburger-menu>
+            <app-hamburger-menu class="md:hidden" [businessId]="businessId"></app-hamburger-menu>
         </div>
         <div class="center-container">
             <div class="my-5 py-2 px-4 text-center bg-gray-300 border-round-xl shadow-4 lg:mx-8 lg:px-6 xl:px-8">

@@ -65,6 +65,7 @@ export interface User {
     password: string,
     rolfk: number,
     businessId: number,
+    user_points?: number;
 }
 
 export interface UsersResponse {

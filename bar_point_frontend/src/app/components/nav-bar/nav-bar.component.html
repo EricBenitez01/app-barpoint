@@ -2,11 +2,12 @@
 <div class="md:block hidden">
     <nav class="text-white p-2" style="background: rgba(1, 1, 1, 0.8)">
         <div class="container mx-auto flex justify-between items-center">
-            <app-logo></app-logo>
+            <app-logo (click)="redirectHome()"></app-logo>
             <div class="space-x-4">
-                <a class="button-nav-desktop no-underline text-white" href="/profile-user">MIS DATOS</a>
-                <a class="button-nav-desktop no-underline text-white" href="/faqs">SOBRE NOSOTROS</a>
-                <a class="button-nav-desktop no-underline text-white" href="/" (click)="redirectLogin()">LOG OUT</a>
+                <a class="button-nav-desktop no-underline text-white cursor-pointer" (click)="redirectUserProfile()">MIS DATOS</a>
+                <a class="button-nav-desktop no-underline text-white cursor-pointer" (click)="redirectFaqs()">SOBRE NOSOTROS</a>
+                <a class="button-nav-desktop no-underline text-white cursor-pointer" (click)="redirectMenu()">MENÚ</a>
+                <a class="button-nav-desktop no-underline text-white cursor-pointer" (click)="redirectLogin()">CERRAR SESIÓN</a>
             </div>
         </div>
     </nav>

@@ -48,6 +48,9 @@
                     (onclick)="onClickEvent($event)" [disabled]="usuarioForm.invalid">
                     INICIAR SESIÓN
                 </button>
+                <div *ngIf="errorMessage" class="text-pink-400 pt-3 error-validation">
+                    {{ errorMessage }}
+                </div>
             </div>
         </form>
     </div>

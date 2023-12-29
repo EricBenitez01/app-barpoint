@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,20 +10,26 @@ import { AuthService } from 'src/app/services/auth.service';
     providers: [MessageService]
 })
 export class NavBarComponent {
+    @Input()
+    businessId!: number;
 
     items: any[] | undefined;
-    constructor(private messageService: MessageService, private router: Router, private authService: AuthService) { }
+    constructor(
+        private messageService: MessageService,
+        private router: Router, 
+        private route: ActivatedRoute,
+        private authService: AuthService) { }
 
     redirectLogin() {
         // Se cierra la sesión del user
         this.authService.logout();
         // Se redirige al login
-        this.router.navigate(['']);
+        this.router.navigate(['login', this.businessId]);
     }
 
     redirectHome() {
         if (this.authService.isLoggedIn()) {
-            this.router.navigate(['home']);
+            this.router.navigate(['home', this.businessId]);
         }
     }
 
@@ -77,5 +83,17 @@ export class NavBarComponent {
 
     delete() {
         alert('El boton funciona');
+    }
+
+    redirectMenu() {
+        this.router.navigate(['menu-viewer', this.businessId]);  
+    }
+
+    redirectUserProfile() {
+        this.router.navigate(['profile-user', this.businessId]);   
+    }
+
+    redirectFaqs() {
+        this.router.navigate(['faqs', this.businessId]);
     }
 }

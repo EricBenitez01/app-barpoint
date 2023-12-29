@@ -13,7 +13,7 @@ module.exports = {
             let whereClause = {};
 
             if (businessId) {
-                whereClause.businessfk  = businessId;
+                whereClause.businessfk = businessId;
             }
     
             let benefits = await db.Benefit.findAll({
@@ -88,15 +88,14 @@ module.exports = {
     },
     create: async (req, res) => {
 
-        const { businessfk , benefitname, img, discount, points_req, description } = req.body;
-
+        const { businessfk, benefitname, img, points_req, description } = req.body;
+        console.log(req.file);
         try {
             let newBenefit = await db.Benefit.create(
                 {
-                    businessfk : +businessfk ,
+                    businessfk: businessfk,
                     benefitname: benefitname?.trim(),
-                    discount: +discount,
-                    points_req: +points_req,
+                    points_req: points_req,
                     img: req.file?.filename,
                     description: description,
                 }
@@ -128,10 +127,10 @@ module.exports = {
             let updateBenefit = await db.Benefit.findByPk(req.params.id);
 
             updateBenefit.benefitname = benefitname?.trim();
-            updateBenefit.discount = +discount;
-            updateBenefit.points_req = +points_req;
-            updateBenefit.img = req.file?.filename || updateBenefit.img;
-            updateBenefit.description = +description;
+            updateBenefit.discount = discount;
+            updateBenefit.points_req = points_req;
+            updateBenefit.img = req.file?.filename;
+            updateBenefit.description = description;
 
             await updateBenefit.save();
 
