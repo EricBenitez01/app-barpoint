@@ -92,7 +92,7 @@ export interface Business {
 	email: string,
 	adress: string,
 	password: string,
-	rolFK: number,
+	rolfk: number,
 	menu?: any;
 }
 

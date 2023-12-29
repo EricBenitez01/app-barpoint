@@ -84,7 +84,7 @@ module.exports = {
             }
 
             // Se genera un token para el business
-            const token = jwt.sign({ businessId: business.id, rol: business.rolFK }, process.env.SECRET_TOKEN);
+            const token = jwt.sign({ businessId: business.id, rol: business.rolfk }, process.env.SECRET_TOKEN);
 
             return res.status(200).json({
                 ok: true,
