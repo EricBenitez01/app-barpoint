@@ -198,8 +198,8 @@ module.exports = {
         }
     },
     menu: (req, res) => {
-        res.sendFile(
-            path.resolve(__dirname, `../../public/pdfs/BusinessesPdf/${req.params.pdf}`)
-        )
+        let pathPDF = path.resolve(__dirname, `../../public/pdfs/BusinessesPdf/${req.params.pdf}`)
+            console.log("Imagen: " + pathPDF);
+        res.sendFile(pathPDF)
     }
 }
