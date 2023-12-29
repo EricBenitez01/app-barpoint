@@ -50,6 +50,7 @@ export class RegisterComponent {
     async onSubmit() {
         if (this.clienteForm.valid) {
             this.cliente = { ...this.cliente, ...this.clienteForm.value };
+            this.cliente.businessId = this.businessId;
             let response = await this.userService.createUser(this.cliente).subscribe(
                 (data) => {
                     this.cdr.detectChanges();
