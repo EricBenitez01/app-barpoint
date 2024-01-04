@@ -149,7 +149,7 @@ module.exports = {
             // Elimina el archivo anterior solo si el campo 'menu' se actualiza
             if (req.file && previousMenuPath) {
                 await fs.unlink(
-                    path.join(__dirname, `../../public/pdfs/BusinessesPdf/${previousMenuPath}`)
+                    path.resolve(__dirname, `../../public/pdfs/BusinessesPdf/${previousMenuPath}`)
                 );
             }
 
@@ -199,7 +199,6 @@ module.exports = {
     },
     menu: (req, res) => {
         let pathPDF = path.resolve(__dirname, `../../public/pdfs/BusinessesPdf/${req.params.pdf}`)
-            console.log("Imagen: " + pathPDF);
         res.sendFile(pathPDF)
     }
 }
