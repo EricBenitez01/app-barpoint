@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 const createStorage = (entityOrFolderName = "benefitsImage") => {
-    const folder = path.resolve(__dirname, `../../public/images/${entityOrFolderName}`)
+    const folder = path.resolve(__dirname, `./public/images/${entityOrFolderName}`)
 
     /* Si la carpeta no existe la crea */
     if (!fs.existsSync(folder)) {
@@ -12,7 +12,7 @@ const createStorage = (entityOrFolderName = "benefitsImage") => {
 
     const storage = multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null,  `../../public/images/${entityOrFolderName}`);
+            callback(null,  `./public/images/${entityOrFolderName}`);
         },
         filename: (req, file, callback) => {
             callback(null, `${entityOrFolderName}-${Date.now()}-${file.originalname}`);
