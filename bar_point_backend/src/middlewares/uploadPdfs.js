@@ -12,7 +12,8 @@ const createStorage = (entityOrFolderName = "BusinessesPdf") => {
 
     const storage = multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null, `../../../bar_point_backend/public/pdfs/${entityOrFolderName}`);
+            let pathResolved = path.resolve(__dirname, `../..//public/pdfs/${entityOrFolderName}`);
+            callback(null, pathResolved);
         },
         filename: (req, file, callback) => {
             callback(null, `${entityOrFolderName}-${Date.now()}-${file.originalname.replace(/ /g, "")}`);
