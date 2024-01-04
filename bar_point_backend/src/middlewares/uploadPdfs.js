@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const createStorage = (entityOrFolderName = "BusinessesPdf") => {
-    const folder = path.join(__dirname, `../../public/pdfs/${entityOrFolderName}`)
+    const folder = path.resolve(__dirname, `../../public/pdfs/${entityOrFolderName}`)
 
     /* Si la carpeta no existe la crea */
     if (!fs.existsSync(folder)) {

@@ -38,7 +38,7 @@ app.use('/api/', business, cors(corsOptions));
 app.use('/api/', dashboard, cors(corsOptions));
 app.use('/api/', imagesRoutes, cors(corsOptions))
 
-//app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
+app.use(express.static(path.join(__dirname, '../../bar_point_frontend/dist/bar_point_frontend')));
 
 // Ruta que maneja todas las solicitudes y las redirige al archivo 'index.html'
 app.get('*', (req, res) => {
