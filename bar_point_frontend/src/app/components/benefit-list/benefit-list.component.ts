@@ -24,7 +24,7 @@ export class BenefitListComponent {
         this.benefitsService.benefitsForaBusiness(this.businessId).subscribe((result) => {
             this.benefits = result.data;
         })
-    };
+    }; 
 
     getImagenUrl(imagenNombre: string): string {
         if (imagenNombre) {
