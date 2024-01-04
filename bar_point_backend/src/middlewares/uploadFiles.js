@@ -12,7 +12,8 @@ const createStorage = (entityOrFolderName = "benefitsImage") => {
 
     const storage = multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null, `../../../bar_point_backend/public/images/${entityOrFolderName}`);
+            let pathResolved = path.resolve(__dirname,`../../public/images/${entityOrFolderName}`);
+            callback(null, pathResolved);
         },
         filename: (req, file, callback) => {
             callback(null, `${entityOrFolderName}-${Date.now()}-${file.originalname}`);
