@@ -2,7 +2,7 @@
   "name": "bar-point",
   "version": "0.0.0",
   "engines": {
-    "node": "18.13.0"
+    "node": "18.20.0"
   },
   "scripts": {
     "frontend-build": "cd bar_point_frontend && npm install && npm install -g @angular/cli && ng build --configuration=production && npm run build",
